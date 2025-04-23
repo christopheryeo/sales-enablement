@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartChat Reseller Training</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tailwind CSS v2.2.19 -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 for icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap">
+  <style>
+    body { font-family: 'Inter', sans-serif; color: #1a2e1a; background: #f0fdf4;}
+    .max-w-prose { max-width: 70ch; }
+    .nav-link { transition: color 0.15s; }
+    .nav-link.active, .nav-link:hover { color: #10b981; border-bottom: 2px solid #10b981;}
+    .section-title { color: #065f46; font-weight: 700;}
+    .pdf-section { margin-bottom: 2.5rem; }
+    .team-avatar { border-radius: 100%; border: 4px solid #bbf7d0; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);}
+    .training-section-number { font-size: 1.25em; color: #047857; font-weight: 600; margin-right: 0.5em;}
+    .section-bg {background: #fff; border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 1px 6px 0 rgba(32, 71, 56, 0.07);}
+    .training-heading { color: #047857; font-weight: 700; }
+    .icon-check { color: #10b981; margin-right: 0.25em;}
+    @media print {
+      .hidden-print {display:none !important}
+      .section-bg { box-shadow: none;}
+    }
+  </style>
+  <script>
+    // Navigation state handler (single file, so use hash only)
+    function switchPage(target) {
+      document.querySelectorAll('.smartchat-section').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.nav-link').forEach(d => d.classList.remove('active'));
+      document.getElementById(target+'-section').style.display = '';
+      document.getElementById(target+'-nav').classList.add('active');
+      if(target === 'home') window.location.hash="";
+      else window.location.hash = target;
+      window.scrollTo(0,0);
+    }
+    window.onload = function() {
+      let h = window.location.hash.replace('#','');
+      if(h && document.getElementById(h+'-section')) switchPage(h);
+      else switchPage('home');
+    }
+    window.onhashchange = function() {
+      let h = window.location.hash.replace('#','');
+      if(h && document.getElementById(h+'-section')) switchPage(h);
+    }
+  </script>
+</head>
+<body class="antialiased">
+  <!-- HEADER -->
+  <header class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center py-4">
+      <img src="https://sentient.io/img/logo1.png" alt="Sentient.io logo" style="height:55px;" class="mr-3">
+      <h1 class="text-2xl font-bold flex-1 text-green-900">SmartChat Reseller Training</h1>
+      <nav class="flex space-x-6 pt-3 sm:pt-0">
+        <a href="javascript:void(0)" class="nav-link font-semibold" id="home-nav" onclick="switchPage('home')"><i class="fas fa-home mr-1"></i>Home</a>
+        <a href="javascript:void(0)" class="nav-link font-semibold" id="about-nav" onclick="switchPage('about')"><i class="fas fa-info-circle mr-1"></i>About</a>
+        <a href="javascript:void(0)" class="nav-link font-semibold" id="team-nav" onclick="switchPage('team')"><i class="fas fa-users mr-1"></i>Team</a>
+        <a href="javascript:void(0)" class="nav-link font-semibold" id="training-nav" onclick="switchPage('training')"><i class="fas fa-graduation-cap mr-1"></i>Training</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HOME PAGE -->
+  <main id="home-section" class="smartchat-section" style="display:none;">
+    <section class="max-w-3xl mx-auto section-bg mt-10 text-center pdf-section">
+      <h2 class="text-3xl font-bold mb-4 section-title">Welcome to SmartChat Reseller Training!</h2>
+      <p class="text-lg mb-6">Equip yourself with the knowledge and tools to effectively sell our enterprise-grade private conversational AI solution.</p>
+      <div class="mb-6 text-left">
+        <h3 class="text-xl font-semibold mb-2 text-green-800">What You'll Learn</h3>
+        <ul class="list-disc ml-8 space-y-2 text-green-900">
+          <li><span class="fa fa-lock icon-check"></span><b>Private & Secure AI:</b> Learn how SmartChat provides enterprise-grade private conversational AI with on-premises deployment options.</li>
+          <li><span class="fa fa-brain icon-check"></span><b>LLM Technology:</b> Understand the power of large language models and how it transforms enterprise knowledge management.</li>
+          <li><span class="fa fa-chart-line icon-check"></span><b>ROI & Use Cases:</b> Discover compelling use cases and ROI metrics to present to potential clients.</li>
+          <li><span class="fa fa-handshake icon-check"></span><b>Sales Techniques:</b> Master the sales process with qualification questions and objection handling strategies.</li>
+        </ul>
+      </div>
+      <div class="mt-8 mb-2">
+        <p class="text-lg font-semibold text-green-900">Ready to become a SmartChat expert?</p>
+        <a href="javascript:void(0)" onclick="switchPage('training')" class="inline-block mt-3 px-6 py-3 rounded-lg text-lg font-bold bg-green-600 hover:bg-green-700 text-white shadow transition">Start Training Now</a>
+      </div>
+      <div class="mt-10 text-base text-green-700">
+        <strong>Contact:</strong> chris@sentient.io
+      </div>
+    </section>
+  </main>
+  
+  <!-- ABOUT PAGE -->
+  <main id="about-section" class="smartchat-section" style="display:none;">
+    <section class="max-w-prose mx-auto section-bg mt-10 pdf-section">
+      <h2 class="text-2xl font-bold section-title mb-2">About Sentient.io and SmartChat</h2>
+      <p class="mb-3">Sentient.io is a Singapore-based technology company specializing in secure, enterprise-grade AI solutions. Its flagship product, SmartChat, delivers "Private AI" by operating within an organization’s own infrastructure or secure cloud, ensuring sensitive data remains protected. Sentient.io aims to lead in secure AI, enabling organizations to leverage advanced capabilities while maintaining strict data control and compliance. The company continually innovates in user experience, integrations, security, analytics, and deployment flexibility, serving both direct clients and partners. </p>
+      <p class="mb-3">Sentient.io is headquartered at <strong>60 Paya Lebar Road, #07-54 Paya Lebar Square, Singapore 409051</strong>.</p>
+      <p class="mb-3">SmartChat is a private AI answer engine that uses only uploaded corporate information, ensuring that only authorized information is used to answer questions. This design prioritizes data security and privacy through flexible deployment options.</p>
+      <p class="mb-3">SmartChat aims to deliver sophisticated, secure, and customizable AI-driven conversational solutions. It is designed for enterprises seeking to deploy highly contextual, human-like interactions.</p>
+      <div class="mt-6 text-green-700">
+        <strong>Info:</strong> <a href="https://www.sentient.io" class="underline text-green-800" target="_blank">www.sentient.io</a> &nbsp;|&nbsp; <strong>Email:</strong> chris@sentient.io
+      </div>
+    </section>
+  </main>
+
+  <!-- TEAM PAGE -->
+  <main id="team-section" class="smartchat-section" style="display:none;">
+    <section class="max-w-4xl mx-auto section-bg mt-10 pdf-section">
+      <h2 class="text-2xl font-bold section-title mb-6">SmartChat Team</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 items-start mb-6">
+        <!-- Christopher Yeo -->
+        <div class="flex flex-col items-center text-center">
+          <img src="https://sentient.io/img/300x300/Chris%20pic.png" alt="Christopher Yeo" class="w-32 h-32 team-avatar mb-2">
+          <div class="text-lg font-bold">Christopher Yeo</div>
+          <div class="text-green-800 font-medium">Founder / CEO</div>
+          <div class="text-sm mt-1">Chief architect behind Sentient.io, leading with 25+ years in tech and as an experienced technopreneur.</div>
+        </div>
+        <!-- Eddie Leong -->
+        <div class="flex flex-col items-center text-center">
+          <img src="https://sentient.io/img/300x300/Eddie-pic.png" alt="Eddie Leong" class="w-32 h-32 team-avatar mb-2">
+          <div class="text-lg font-bold">Eddie Leong</div>
+          <div class="text-green-800 font-medium">CFO</div>
+          <div class="text-sm mt-1">Specialises in finance, IT project/program management, and application management.</div>
+        </div>
+        <!-- Priya Somasundaram -->
+        <div class="flex flex-col items-center text-center">
+          <img src="https://sentient.io/img/300x300/Priya%20pic.png" alt="Priya Somasundaram" class="w-32 h-32 team-avatar mb-2">
+          <div class="text-lg font-bold">Priya Somasundaram</div>
+          <div class="text-green-800 font-medium">Technology, VP</div>
+          <div class="text-sm mt-1">Highly experienced in full-stack IT engineering and team leadership.</div>
+        </div>
+        <!-- Gloria Koh -->
+        <div class="flex flex-col items-center text-center">
+          <img src="https://sentient.io/img/300x300/Gloria%20pic.png" alt="Gloria Koh" class="w-32 h-32 team-avatar mb-2">
+          <div class="text-lg font-bold">Gloria Koh</div>
+          <div class="text-green-800 font-medium">Corporate Development, VP</div>
+          <div class="text-sm mt-1">Specialises in Asia-Pacific retail, strategy, operations, and marketing communications.</div>
+        </div>
+      </div>
+      <h3 class="text-xl font-semibold training-heading mt-8 mb-2">Product Overview & Benefits</h3>
+      <ul class="list-disc text-green-900 ml-8">
+        <li><b>SmartChat</b> by Sentient.io is a cutting-edge conversational AI platform designed for enterprises. It utilizes state-of-the-art machine learning algorithms and natural language processing.</li>
+        <li>Key benefits include improved customer service, increased employee productivity, and enhanced knowledge management—helping unlock knowledge from internal documents.</li>
+        <li>It uniquely solves customer problems by acting as a private AI answer engine, surfacing only authorized information you upload.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- TRAINING PAGE -->
+  <main id="training-section" class="smartchat-section" style="display:none;">
+    <section class="max-w-3xl mx-auto section-bg mt-10 pdf-section">
+      <h2 class="text-2xl font-bold training-heading mb-6">SmartChat Reseller Training Program</h2>
+      <div class="space-y-10 text-green-900">
+        <!-- 1 -->
+        <div>
+          <span class="training-section-number">1.</span>
+          <span class="font-bold">Key Differentiators Overview</span>
+          <div>SmartChat excels by prioritizing privacy, security, and deployment flexibility, uniquely setting itself apart in conversational AI.</div>
+        </div>
+        <!-- 2 -->
+        <div>
+          <span class="training-section-number">2.</span>
+          <span class="font-bold">Private AI RAG System</span>
+          <div>
+            SmartChat uses a Retrieval-Augmented Generation (RAG) system that accesses an organization’s private documents to ground AI responses in verified information. This reduces hallucinations, ensures accuracy, and provides up-to-date information, unlike public AI models.
+          </div>
+        </div>
+        <!-- 3 -->
+        <div>
+          <span class="training-section-number">3.</span>
+          <span class="font-bold">On-Premise Deployment</span>
+          <div>
+            SmartChat offers on-premise installation, ensuring complete data control and compliance with stringent security requirements. Most competitors, such as Copilot, are cloud-only.
+          </div>
+        </div>
+        <!-- 4 -->
+        <div>
+          <span class="training-section-number">4.</span>
+          <span class="font-bold">Separate Indexing</span>
+          <div>
+            Separate indexes for enterprise and public data prevent leakage, simplify compliance, and protect internal information—a unique edge over blending architectures.
+          </div>
+        </div>
+        <!-- 5 -->
+        <div>
+          <span class="training-section-number">5.</span>
+          <span class="font-bold">Multi-Model Support</span>
+          <div>
+            Ability to use different AI models for different tasks boosts efficiency, cost-optimization, and prevents vendor lock-in—a richer offering than single-model competitors.
+          </div>
+        </div>
+        <!-- 6 -->
+        <div>
+          <span class="training-section-number">6.</span>
+          <span class="font-bold">Market Overview Introduction</span>
+          <div>
+            Knowing the ideal customer and pain points SmartChat solves is crucial to effective selling.
+          </div>
+        </div>
+        <!-- 7 -->
+        <div>
+          <span class="training-section-number">7.</span>
+          <span class="font-bold">Ideal Customer Profile (ICP)</span>
+          <div>
+            SmartChat is best for knowledge-intensive, mid- to large-sized enterprises (500+ employees) with document-heavy workflows, especially in regulated industries—notably finance, legal, manufacturing, and government.
+          </div>
+        </div>
+        <!-- 8 -->
+        <div>
+          <span class="training-section-number">8.</span>
+          <span class="font-bold">Target Industries and Use Cases</span>
+          <div>
+            SmartChat is ideal for organizations needing secure document retrieval—such as internal intranets, customer support, and centralized knowledge repositories. Handles PDFs, Word, and Excel files with ease.
+          </div>
+        </div>
+        <!-- 9 -->
+        <div>
+          <span class="training-section-number">9.</span>
+          <span class="font-bold">Industry Examples (Finance & Government)</span>
+          <div>
+            <b>Finance:</b> Resolves inefficient information access and compliance bottlenecks. <br>
+            <b>Government:</b> Enables secure citizen service, information accuracy, and compliance with strict data protocols.
+          </div>
+        </div>
+        <!-- 10 -->
+        <div>
+          <span class="training-section-number">10.</span>
+          <span class="font-bold">Competitive Positioning</span>
+          <div>
+            SmartChat is private, secure, highly customizable, and offers on-premise options—far beyond public LLMs and Microsoft Copilot's cloud-centric approach.
+          </div>
+          <ul class="list-disc ml-8 mt-2">
+            <li><b>AI Concepts:</b> NLP, Private AI RAG, document ingestion, and secure internal indexing</li>
+            <li><b>SmartChat vs LLMs:</b> Privacy, on-prem install, deep customization, no vendor lock-in</li>
+            <li><b>SmartChat vs Copilot:</b> On-prem install, non-MS ecosystem compatibility, strict internal/external separation</li>
+          </ul>
+        </div>
+        <!-- 11 -->
+        <div>
+          <span class="training-section-number">11.</span>
+          <span class="font-bold">Sales Process</span>
+          <div>
+            Leverage Sentient.io’s recommended process, focusing on lead qualification (secure-data needs, knowledge silos, IT infrastructure) and consultative selling (industry pain points, technical clarity).
+          </div>
+        </div>
+        <!-- 12 -->
+        <div>
+          <span class="training-section-number">12.</span>
+          <span class="font-bold">Pricing</span>
+          <div>
+            <b>SmartChat Enterprise:</b> Per user/month, unlimited convos, limited named accounts—internal use. <br>
+            <b>SmartChat Standard:</b> Per block of 5,000 convos/month, unlimited users—external/public-facing use. <br>
+            Pricing varies for Sentient Cloud, Reseller Cloud, and On-Premise.
+          </div>
+          <div class="mt-2">
+            <b>Reseller Opportunities:</b> Set your own prices/margins, offer internal & external instances, profit across pricing models.
+          </div>
+        </div>
+        <!-- 13 -->
+        <div>
+          <span class="training-section-number">13.</span>
+          <span class="font-bold">Technical Details</span>
+          <div>
+            <ul class="list-disc ml-8">
+              <li>Deployment: On-prem, private cloud, hybrid possible (flexible for data sovereignty)</li>
+              <li>Separate indexes for Standard/Enterprise</li>
+              <li>API integrations for messaging (e.g., WhatsApp)</li>
+              <li>On-prem installation fee ($10k, waived if managed by trained reseller)</li>
+              <li>Reseller install training: $2k/2 ppl, 1-day session</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 14 -->
+        <div>
+          <span class="training-section-number">14.</span>
+          <span class="font-bold">Enablement & Support</span>
+          <div>
+            <ul class="list-disc ml-8">
+              <li>Centralized sales enablement portal (brochures, cases, whitepapers)</li>
+              <li>CRM for leads, opportunity tracking, and deal progress</li>
+              <li>Sales tools: product brochures, ROI calculators, use-case stories</li>
+              <li>Ongoing support: product/sales contacts, tech docs, escalation channels, peer forums</li>
+              <li>Continuous training to keep pace with AI advancements</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 15 -->
+        <div>
+          <span class="training-section-number">15.</span>
+          <span class="font-bold">Conclusion</span>
+          <div>
+            <b>Key Takeaways:</b> SmartChat is unique for its private, on-premise AI, robust security, and focus on data sovereignty. Success depends on value-based selling, connecting features (RAG, multi-model support, separation) to direct customer ROI, and leveraging ongoing learning/resources.
+            <br><br>
+            <b>Next Steps:</b> Review all supporting materials, connect with Sentient.io for any queries, and start reaching out to high-fit prospects!
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
