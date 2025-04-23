@@ -23,7 +23,7 @@ Then visit `http://localhost:8000` in your browser.
 
 ## Structure
 
-- `index.html` - Main website content
-- `content.md` - Source content for the website
+- `index.html` - Main website content. **Note:** This file was initially generated based on `content.md`, but is not dynamically linked.
+- `content.md` - Original source content used to create `index.html`.
 - `css/` - Styling files
 - `images/` - Image assets
