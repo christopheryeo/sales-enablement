@@ -5,11 +5,15 @@ A comprehensive sales enablement website for SmartChat resellers. This website p
 ## Features
 
 - Interactive navigation
-- Comprehensive training program
+- Comprehensive training program with:
+  - Collapsible sections
+  - Visited section indicators (checkboxes)
+  - Training progress bar
 - Team information
 - Product details and differentiators
 - Sales process guidelines
 - Technical specifications
+- Homepage hero image
 
 ## Local Development
 
@@ -23,7 +27,7 @@ Then visit `http://localhost:8000` in your browser.
 
 ## Structure
 
-- `index.html` - Main website content. **Note:** This file was initially generated based on `content.md`, but is not dynamically linked.
+- `index.html` - Main website content, incorporating details from `content.md`.
 - `content.md` - Original source content used to create `index.html`.
 - `css/` - Styling files
 - `images/` - Image assets
