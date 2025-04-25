@@ -81,7 +81,7 @@ Welcome to the SmartChat Reseller Training! This section will introduce you to t
 **What to Expect:**
 - Clear objectives to guide your learning
 - Interactive checklist to track your progress
-- A short quiz to help you check your understanding
+- A short quiz to help you check your understanding (Note: Quiz functionality not implemented yet)
 
 <checklist title="Training Objectives">
 <item>Understand the value proposition of SmartChat</item>
@@ -108,7 +108,13 @@ Ready to begin? Use the checklist above to track your objectives, and test your 
 
 ## Component: Key Differentiators Overview
 
-SmartChat possesses several key differentiators that set it apart in the conversational AI market, particularly its focus on privacy, security, and deployment flexibility.
+SmartChat sets itself apart with several key differentiators:
+*   **Deep Workflow Integration:** Connects seamlessly with enterprise applications (e.g., SharePoint, knowledge management systems) allowing interaction with internal data within daily workflows.
+*   **Customizable Workflows:** Tailor AI responses to industry-specific terminology and document formats for relevant and actionable outputs.
+*   **Advanced Features:** Supports multi-select/bulk uploads, contextual search, and document summarization to streamline operations.
+*   **Robust Analytics:** Provides insights into usage patterns and performance for process improvement and measuring AI impact.
+*   **Flexible Deployment:** Offers on-premise, private cloud, and hybrid models for integration into existing IT environments, maintaining infrastructure control.
+*   **Enhanced Collaboration:** Improves knowledge sharing and decision-making across the enterprise.
 
 ## Component: Private AI RAG System
 
