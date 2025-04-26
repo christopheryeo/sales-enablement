@@ -51,15 +51,25 @@
 </head>
 <body class="antialiased">
   <!-- HEADER -->
-  <header class="bg-white shadow-sm sticky top-0 z-10">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center py-4">
-      <img src="https://sentient.io/img/logo1.png" alt="Sentient.io logo" style="height:55px;" class="mr-3">
-      <h1 class="text-2xl font-bold flex-1 text-green-900">SmartChat Reseller Training</h1>
-      <nav class="flex space-x-6 pt-3 sm:pt-0">
-        <a href="javascript:void(0)" class="nav-link font-semibold" id="home-nav" onclick="switchPage('home')"><i class="fas fa-home mr-1"></i>Home</a>
-        <a href="javascript:void(0)" class="nav-link font-semibold" id="about-nav" onclick="switchPage('about')"><i class="fas fa-info-circle mr-1"></i>About</a>
-        <a href="javascript:void(0)" class="nav-link font-semibold" id="team-nav" onclick="switchPage('team')"><i class="fas fa-users mr-1"></i>Team</a>
-        <a href="javascript:void(0)" class="nav-link font-semibold" id="training-nav" onclick="switchPage('training')"><i class="fas fa-graduation-cap mr-1"></i>Training</a>
+  <header class="bg-white shadow-md py-4 sticky top-0 z-10">
+    <div class="container mx-auto px-4 flex flex-wrap items-center justify-between">
+      <!-- Logo and Title -->
+      <div class="flex items-center flex-shrink-0 mr-6">
+        <img src="https://sentient.io/img/logo1.png" alt="Sentient.io logo" style="height:40px;" class="mr-3">
+        <div>
+          <h1 class="text-xl font-bold text-emerald-700">SmartChat Reseller Training</h1>
+          <div class="mt-1">
+            <span id="progress-meter" class="text-xs text-gray-600">Progress: 0 / 27 sections viewed</span>
+            <span id="score-meter" class="ml-2 text-xs text-gray-600">Score: 0 / 0</span>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation Links -->
+      <nav class="flex space-x-4 sm:space-x-6 mt-2 sm:mt-0 text-sm sm:text-base">
+        <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="home-nav" onclick="switchPage('home')"><i class="fas fa-home mr-1"></i>Home</a>
+        <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="about-nav" onclick="switchPage('about')"><i class="fas fa-info-circle mr-1"></i>About</a>
+        <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="team-nav" onclick="switchPage('team')"><i class="fas fa-users mr-1"></i>Team</a>
+        <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="training-nav" onclick="switchPage('training')"><i class="fas fa-graduation-cap mr-1"></i>Training</a>
       </nav>
     </div>
   </header>
@@ -156,11 +166,6 @@
       <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center training-heading mb-10">SmartChat Reseller Training Program</h2>
         <div class="space-y-6 text-gray-700 bg-white p-8 rounded-lg shadow-lg border border-emerald-200">
-          <!-- Progress Indicator -->
-          <div id="training-progress" class="mb-6 p-4 bg-emerald-100 border border-emerald-300 rounded-md text-emerald-800 font-semibold">
-            Progress: 0 / 0 sections completed (0%)
-          </div>
-
           <!-- Training Introduction -->
           <div class="mb-6">
             <h3 class="text-xl font-semibold training-heading mb-2 collapsible-heading cursor-pointer flex justify-between items-center text-emerald-700">
@@ -171,7 +176,20 @@
               <span class="indicator ml-2 text-2xl">+</span>
             </h3>
             <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
-              <p>This training will equip you to successfully position and sell SmartChat, Sentient.io's secure and customizable private AI solution. SmartChat leverages state-of-the-art machine learning algorithms and natural language processing to deliver highly contextual interactions. We will cover product knowledge, sales methodology, technical aspects, and resources necessary for you to effectively represent and sell SmartChat.</p>
+              <p>Welcome to the SmartChat Reseller Training Program. This comprehensive program is designed to equip you with the knowledge and skills needed to effectively position, sell, and support SmartChat, our cutting-edge private AI solution for enterprises.</p>
+              <p>Throughout this training, you'll gain a deep understanding of SmartChat's features, benefits, target market, and competitive advantages.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="B">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> What is the primary goal of this training program?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q1" value="A" class="mr-2">A) To learn about general AI trends.</label>
+                  <label class="block"><input type="radio" name="q1" value="B" class="mr-2">B) To understand SmartChat's features, benefits, and how to sell it effectively.</label>
+                  <label class="block"><input type="radio" name="q1" value="C" class="mr-2">C) To practice presentation skills.</label>
+                  <label class="block"><input type="radio" name="q1" value="D" class="mr-2">D) To get certified in cloud computing.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -193,6 +211,18 @@
                 <li>A short quiz to help you check your understanding (Note: Quiz functionality not implemented yet)</li>
               </ul>
               <p class="mt-3">Ready to begin? Let's get started!</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="B">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> What is one key objective mentioned for this training?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q2" value="A" class="mr-2">A) Develop advanced coding skills.</label>
+                  <label class="block"><input type="radio" name="q2" value="B" class="mr-2">B) Master objection handling and competitive positioning.</label>
+                  <label class="block"><input type="radio" name="q2" value="C" class="mr-2">C) Learn graphic design principles.</label>
+                  <label class="block"><input type="radio" name="q2" value="D" class="mr-2">D) Understand blockchain technology.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -213,6 +243,18 @@
                  <li><strong>Flexible Deployment:</strong> Offers on-premise, private cloud, and hybrid models for integration into existing IT environments, maintaining infrastructure control.</li>
                  <li><strong>Enhanced Collaboration:</strong> Improves knowledge sharing and decision-making across the enterprise.</li>
                </ul>
+               <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+               <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> According to the overview, what is a core strength of SmartChat mentioned?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q3" value="A" class="mr-2">A) It's the cheapest option available.</label>
+                  <label class="block"><input type="radio" name="q3" value="B" class="mr-2">B) It offers the most AI models.</label>
+                  <label class="block"><input type="radio" name="q3" value="C" class="mr-2">C) Its focus on private AI and data control.</label>
+                  <label class="block"><input type="radio" name="q3" value="D" class="mr-2">D) It integrates only with Microsoft products.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
              </div>
           </div>
 
@@ -231,6 +273,18 @@
                 <li>This system leads to reduced hallucinations often seen in general AI models. By relying on internal knowledge, SmartChat provides up-to-date information directly from your sources.</li>
                 <li>This is a key advantage over general AI models like ChatGPT that don't directly access internal knowledge in a secure manner. SmartChat's private AI ensures that your data stays yours and isn't used to train outside models.</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> How does SmartChat's RAG system ensure trustworthy responses compared to general AI models?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q4" value="A" class="mr-2">A) By searching the entire public internet.</label>
+                  <label class="block"><input type="radio" name="q4" value="B" class="mr-2">B) By using the newest available AI model.</label>
+                  <label class="block"><input type="radio" name="q4" value="C" class="mr-2">C) By grounding responses only in the organization's verified private documents.</label>
+                  <label class="block"><input type="radio" name="q4" value="D" class="mr-2">D) By guessing the most likely answer.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -244,11 +298,21 @@
               <span class="indicator ml-2 text-2xl">+</span>
             </h3>
             <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
-              <ul class="list-disc ml-8 space-y-1">
-                <li>SmartChat offers full installation within your own infrastructure, ensuring that no data leaves your environment. This provides complete data control for organizations.</li>
-                <li>This deployment option meets stringent security requirements and addresses critical data sovereignty concerns. Organizations in highly regulated industries or government agencies will find this particularly beneficial.</li>
-                <li>Most other AI assistants, such as ChatGPT, Claude, and Gemini, are cloud-only. Even Microsoft Copilot requires cloud connectivity, making SmartChat's on-premise option a significant differentiator.</li>
-              </ul>
+              <p>SmartChat offers full installation within your own infrastructure, ensuring that no data leaves your environment. This provides complete data control for organizations.</p>
+              <p>This deployment option meets stringent security requirements and addresses critical data sovereignty concerns. Organizations in highly regulated industries or government agencies will find this particularly beneficial.</p>
+              <p>Most other AI assistants, such as ChatGPT, Claude, and Gemini, are cloud-only. Even Microsoft Copilot requires cloud connectivity, making SmartChat's on-premise option a significant differentiator.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> What is the main advantage of SmartChat's on-premise deployment option, especially for regulated industries?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q5" value="A" class="mr-2">A) Faster response times.</label>
+                  <label class="block"><input type="radio" name="q5" value="B" class="mr-2">B) Lower initial cost.</label>
+                  <label class="block"><input type="radio" name="q5" value="C" class="mr-2">C) Complete data control and enhanced security within the client's environment.</label>
+                  <label class="block"><input type="radio" name="q5" value="D" class="mr-2">D) Access to public data trends.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -267,6 +331,18 @@
                 <li>This separation prevents information leakage and significantly simplifies compliance efforts with data protection regulations. It also enables the application of different security policies to each index.</li>
                 <li>This unique architecture of having separate indexes is not available in most competing products. This makes SmartChat more secure than solutions that might blend internal and external data.</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Why is the separation of enterprise and public data indexes important for security and compliance?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q6" value="A" class="mr-2">A) It allows for faster data retrieval.</label>
+                  <label class="block"><input type="radio" name="q6" value="B" class="mr-2">B) It reduces the need for data encryption.</label>
+                  <label class="block"><input type="radio" name="q6" value="C" class="mr-2">C) It prevents information leakage and simplifies compliance efforts.</label>
+                  <label class="block"><input type="radio" name="q6" value="D" class="mr-2">D) It increases the risk of data breaches.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -280,11 +356,20 @@
               <span class="indicator ml-2 text-2xl">+</span>
             </h3>
             <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
-              <ul class="list-disc ml-8 space-y-1">
-                <li>SmartChat has the ability to use different AI models for different tasks. This allows for optimal performance across various types of queries and processing needs.</li>
-                <li>This feature also offers cost optimization by selecting the most efficient model for a given task. Furthermore, it provides a future-proof investment by not being locked to a single AI model.</li>
-                <li>Being able to switch between models offers more flexibility than single-model competitors. This also prevents vendor lock-in, giving you more control over your AI infrastructure.</li>
-              </ul>
+              <p>SmartChat supports using different AI models (e.g., GPT-4, Claude, Llama) for different tasks, allowing for optimal performance and cost optimization. This flexibility prevents vendor lock-in and allows leveraging the latest AI advancements.</p>
+              <p>This capability offers more control over your AI infrastructure compared to single-model competitors.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> How does supporting multiple AI models benefit an enterprise using SmartChat?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q7" value="A" class="mr-2">A) It simplifies the user interface.</label>
+                  <label class="block"><input type="radio" name="q7" value="B" class="mr-2">B) It guarantees the AI never makes mistakes.</label>
+                  <label class="block"><input type="radio" name="q7" value="C" class="mr-2">C) It allows performance/cost optimization and prevents vendor lock-in.</label>
+                  <label class="block"><input type="radio" name="q7" value="D" class="mr-2">D) It requires less server hardware.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -299,6 +384,7 @@
             </h3>
             <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
               <p>Understanding the ideal customer and the specific problems SmartChat solves is crucial for effective selling.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
             </div>
           </div>
 
@@ -313,10 +399,22 @@
             </h3>
             <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
               <ul class="list-disc ml-8 space-y-1">
-                <li>Ideal customers for SmartChat are knowledge-intensive, mid-size to large enterprises (500+ employees). These are organizations that rely heavily on document-based knowledge and information retrieval.</li>
-                <li>They often struggle with knowledge silos and information overload, making it difficult for employees and customers to find necessary information. This leads to inefficient customer service and wasted time searching for relevant data.</li>
-                <li>Key industries that fit this profile include finance, legal, manufacturing, and customer service. These sectors typically have a vast amount of internal documents and stringent requirements for data security and compliance.</li>
+                <li>Ideal customers: Knowledge-intensive, mid-to-large enterprises (500+ employees) reliant on document-based knowledge.</li>
+                <li>Pain points: Often struggle with knowledge silos, information overload, inefficient customer service, and time wasted searching for data.</li>
+                <li>Key Industries: Finance, legal, manufacturing, customer service (sectors with vast internal documents and security/compliance needs).</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Describe the type of company that is an ideal customer for SmartChat.</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q9" value="A" class="mr-2">A) Small startups with minimal data.</label>
+                  <label class="block"><input type="radio" name="q9" value="B" class="mr-2">B) Companies looking only for cloud-based solutions.</label>
+                  <label class="block"><input type="radio" name="q9" value="C" class="mr-2">C) Knowledge-intensive, mid-to-large enterprises needing secure access to internal documents.</label>
+                  <label class="block"><input type="radio" name="q9" value="D" class="mr-2">D) Individual consumers.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -332,9 +430,21 @@
             <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
               <ul class="list-disc ml-8 space-y-1">
                 <li>SmartChat is particularly well-suited for industries that rely heavily on document-based knowledge and information retrieval such as finance, legal, manufacturing, and customer service. Its ability to handle various document types like PDF, Word, and Excel makes it versatile.</li>
-                <li>Popular use cases include intranet and internal enterprise usage, where employees can easily access company policies, reports, and FAQs. It is also ideal for public-facing digital assistants for customer support, providing accurate and consistent information.</li>
-                <li>SmartChat is also popular with enterprises with large internal intranet use cases, acting as a centralized knowledge repository. This helps in capturing and sharing tribal knowledge from experienced employees.</li>
+                <li>Popular use cases include internal knowledge base search, regulatory compliance checking, technical documentation retrieval, and enhancing customer support.</li>
+                <li>It's also valuable for large internal intranets, centralizing knowledge.</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Mention one industry where SmartChat is particularly useful and a common use case within that industry.</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q10" value="A" class="mr-2">A) Retail: Managing online advertising campaigns.</label>
+                  <label class="block"><input type="radio" name="q10" value="B" class="mr-2">B) Finance: Checking internal policies and regulations securely.</label>
+                  <label class="block"><input type="radio" name="q10" value="C" class="mr-2">C) Entertainment: Streaming video content.</label>
+                  <label class="block"><input type="radio" name="q10" value="D" class="mr-2">D) Travel: Booking flights and hotels.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -360,6 +470,18 @@
                 <li><strong>SmartChat Solution:</strong> Offers a private AI capable of answering citizen inquiries based on official government data, with the critical option of on-premise deployment to ensure maximum security and data control. This allows agencies to keep sensitive information within their own infrastructure.</li>
                 <li><strong>Benefit:</strong> This results in improved citizen services by providing quick and accurate responses to inquiries, reduced wait times, and enhanced data security and compliance with government regulations. SmartChat's source attribution feature can also build trust in the information provided.</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="B">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> How does SmartChat address a specific pain point in either the Finance or Government sector?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q11" value="A" class="mr-2">A) By providing public stock market analysis.</label>
+                  <label class="block"><input type="radio" name="q11" value="B" class="mr-2">B) By offering secure, on-premise capable AI for accessing internal regulations (Finance) or official data (Government).</label>
+                  <label class="block"><input type="radio" name="q11" value="C" class="mr-2">C) By managing social media accounts.</label>
+                  <label class="block"><input type="radio" name="q11" value="D" class="mr-2">D) By automatically generating marketing emails.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -376,7 +498,7 @@
               <p class="mb-3">Understanding how SmartChat compares to other AI solutions is key to highlighting its unique value.</p>
               <h4 class="font-semibold mt-3 mb-1">Understanding Basic AI Concepts</h4>
               <ul class="list-disc ml-8 space-y-1">
-                <li>Familiarize yourself with terms like Natural Language Processing (NLP), which allows SmartChat to understand complex queries and conversational context. This enables users to find relevant information using natural language queries.</li>
+                <li>Familiarize yourself with terms like Natural Language Processing (NLP), which allows SmartChat to understand complex queries and conversational context. This enables users to find information using simple, everyday language.</li>
                 <li>Understand the concept of a Private AI RAG System, where SmartChat accesses your organization's private documents to provide accurate and trustworthy responses. This differs significantly from general LLMs that primarily rely on vast public internet data.</li>
                 <li>Be able to explain the basics of how SmartChat understands and responds to queries by ingesting and indexing your company's internal documents. It then uses its AI capabilities to understand the context and surface the most relevant information.</li>
               </ul>
@@ -392,6 +514,40 @@
                 <li>SmartChat can integrate with a broader range of non-Microsoft ecosystems including various document repositories and communication tools. Microsoft Co-pilot's integration is primarily within the Microsoft 365 environment.</li>
                 <li>SmartChat provides separate indexing for internal and external data, ensuring no training on customer data and enhanced security. While Microsoft Co-pilot has security measures, its effectiveness relies on the proper management of permissions within Microsoft 365.</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="B">
+                <p class="font-semibold">Reinforcement Question (1/3):</p>
+                <p class="mb-2"><strong>Q:</strong> What does "Private AI RAG System" mean in the context of SmartChat?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q12a" value="A" class="mr-2">A) AI that predicts stock market trends privately.</label>
+                  <label class="block"><input type="radio" name="q12a" value="B" class="mr-2">B) AI retrieving info from private documents to generate answers.</label>
+                  <label class="block"><input type="radio" name="q12a" value="C" class="mr-2">C) A system for encrypting emails.</label>
+                  <label class="block"><input type="radio" name="q12a" value="D" class="mr-2">D) AI that translates languages offline.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="A">
+                <p class="font-semibold">Reinforcement Question (2/3):</p>
+                <p class="mb-2"><strong>Q:</strong> What is a key advantage of SmartChat over general LLMs like ChatGPT regarding data privacy?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q12b" value="A" class="mr-2">A) Operates in private space (on-prem/private cloud), uses only internal data.</label>
+                  <label class="block"><input type="radio" name="q12b" value="B" class="mr-2">B) Offers more creative writing features.</label>
+                  <label class="block"><input type="radio" name="q12b" value="C" class="mr-2">C) Has a larger public dataset.</label>
+                  <label class="block"><input type="radio" name="q12b" value="D" class="mr-2">D) Is free to use for commercial purposes.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question (3/3):</p>
+                <p class="mb-2"><strong>Q:</strong> Besides on-premise deployment, name another way SmartChat differs from Microsoft Co-pilot.</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q12c" value="A" class="mr-2">A) Only works with Microsoft Office files.</label>
+                  <label class="block"><input type="radio" name="q12c" value="B" class="mr-2">B) Requires users to have a Microsoft 365 subscription.</label>
+                  <label class="block"><input type="radio" name="q12c" value="C" class="mr-2">C) Broader non-Microsoft integration OR separate internal/external data indexing.</label>
+                  <label class="block"><input type="radio" name="q12c" value="D" class="mr-2">D) Cannot understand different languages.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -425,7 +581,7 @@
                   <li>Ask probing questions to uncover their unique needs and pain points specific to their industry, such as challenges in finance, insurance, government, or retail. Understand their current processes for knowledge management and identify areas where SmartChat can provide significant improvement.</li>
                   <li>Translate SmartChat's technical features into tangible business outcomes that resonate with the prospect's specific needs and priorities. For example, explain how the Private AI RAG system leads to more accurate and trustworthy information, saving time and reducing errors.</li>
                   <li>Highlight how features like on-premise deployment lead to enhanced security and compliance, addressing concerns about data privacy and regulatory requirements. Emphasize that their sensitive data remains within their own infrastructure, providing complete control.</li>
-                  <li>Explain how the Private AI RAG system ensures accurate and trustworthy information, contrasting it with the potential for hallucinations in public AI models. Quantify the benefits whenever possible, such as reduced time spent searching or improved customer service resolution rates.</li>
+                  <li>Explain how the Private AI RAG system ensures accurate and trustworthy information, contrasting it with the potential for hallucinations in public AI models. Quantify the benefits whenever possible to demonstrate clear ROI.</li>
               </ul>
               <h4 class="font-semibold mt-3 mb-1">Handling Objections</h4>
               <ul class="list-disc ml-8 space-y-1">
@@ -433,6 +589,73 @@
                   <li>Emphasize SmartChat's user-friendly interface for both administrators uploading documents and end-users asking questions. Clearly articulate the value proposition by focusing on tangible business outcomes like improved efficiency and reduced risks of non-compliance.</li>
                   <li>Highlight the ROI through improved efficiency by reducing the time employees spend searching for information and by potentially improving customer service resolution times. Also emphasize the reduction of risks associated with data breaches due to SmartChat's security features and deployment options.</li>
               </ul>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="A">
+                <p class="font-semibold">Reinforcement Question (1/6):</p>
+                <p class="mb-2"><strong>Q:</strong> What is the recommended first step when engaging with a potential SmartChat lead?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q13a" value="A" class="mr-2">A) Effective lead qualification to identify ideal prospects.</label>
+                  <label class="block"><input type="radio" name="q13a" value="B" class="mr-2">B) Sending a pricing quote immediately.</label>
+                  <label class="block"><input type="radio" name="q13a" value="C" class="mr-2">C) Scheduling a technical deep-dive demo.</label>
+                  <label class="block"><input type="radio" name="q13a" value="D" class="mr-2">D) Asking for a signed contract.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question (2/6):</p>
+                <p class="mb-2"><strong>Q:</strong> What kind of information is crucial to gather during lead qualification?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q13b" value="A" class="mr-2">A) The prospect's favorite color.</label>
+                  <label class="block"><input type="radio" name="q13b" value="B" class="mr-2">B) Their preferred social media platform.</label>
+                  <label class="block"><input type="radio" name="q13b" value="C" class="mr-2">C) Stakeholders, budget, timeline, needs/pain points, infrastructure.</label>
+                  <label class="block"><input type="radio" name="q13b" value="D" class="mr-2">D) How many pets the CEO owns.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="D">
+                <p class="font-semibold">Reinforcement Question (3/6):</p>
+                <p class="mb-2"><strong>Q:</strong> Why is it important to understand a prospect's specific business challenges?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q13c" value="A" class="mr-2">A) To recommend unrelated products.</label>
+                  <label class="block"><input type="radio" name="q13c" value="B" class="mr-2">B) To talk about your own company's success.</label>
+                  <label class="block"><input type="radio" name="q13c" value="C" class="mr-2">C) To make the sales call longer.</label>
+                  <label class="block"><input type="radio" name="q13c" value="D" class="mr-2">D) To position SmartChat as a solution to their actual problems (value-based selling).</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="B">
+                <p class="font-semibold">Reinforcement Question (4/6):</p>
+                <p class="mb-2"><strong>Q:</strong> How can you address a common objection related to the cost of SmartChat?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q13d" value="A" class="mr-2">A) Offer a large, immediate discount without context.</label>
+                  <label class="block"><input type="radio" name="q13d" value="B" class="mr-2">B) Highlight ROI, compare TCO, emphasize value of security/control.</label>
+                  <label class="block"><input type="radio" name="q13d" value="C" class="mr-2">C) Ignore the objection and change the subject.</label>
+                  <label class="block"><input type="radio" name="q13d" value="D" class="mr-2">D) Suggest they use a free, less secure alternative.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="A">
+                <p class="font-semibold">Reinforcement Question (5/6):</p>
+                <p class="mb-2"><strong>Q:</strong> What is the main purpose of conducting a POC or pilot program?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q13e" value="A" class="mr-2">A) Demonstrate value with prospect's data, build confidence.</label>
+                  <label class="block"><input type="radio" name="q13e" value="B" class="mr-2">B) To delay the final purchasing decision.</label>
+                  <label class="block"><input type="radio" name="q13e" value="C" class="mr-2">C) To test completely unrelated software.</label>
+                  <label class="block"><input type="radio" name="q13e" value="D" class="mr-2">D) To get free consulting from the prospect.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="D">
+                <p class="font-semibold">Reinforcement Question (6/6):</p>
+                <p class="mb-2"><strong>Q:</strong> What is an important activity after closing a sale?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q13f" value="A" class="mr-2">A) Immediately stop all communication.</label>
+                  <label class="block"><input type="radio" name="q13f" value="B" class="mr-2">B) Ask for payment again.</label>
+                  <label class="block"><input type="radio" name="q13f" value="C" class="mr-2">C) Delete their contact information.</label>
+                  <label class="block"><input type="radio" name="q13f" value="D" class="mr-2">D) Ensure smooth onboarding, maintain communication, ensure satisfaction.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
             </div>
           </div>
 
@@ -551,6 +774,141 @@
             </div>
           </div>
 
+          <!-- Deployment Options -->
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold training-heading mb-2 collapsible-heading cursor-pointer flex justify-between items-center text-emerald-700">
+              <span class="flex items-center">
+                <span class="checkbox mr-2 text-emerald-700">☐</span>
+                <span>23. Deployment Options</span>
+              </span>
+              <span class="indicator ml-2 text-2xl">+</span>
+            </h3>
+            <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
+              <p>SmartChat deployment options: On-premise (client infrastructure), Private Cloud (dedicated instance), Hybrid. Integration with platforms like WhatsApp is possible via API.</p>
+              <p>Understand the basics of the architecture and integration capabilities.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Name one deployment architecture option available for SmartChat besides on-premise.</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q23" value="A" class="mr-2">A) Public Cloud.</label>
+                  <label class="block"><input type="radio" name="q23" value="B" class="mr-2">B) Hybrid Cloud.</label>
+                  <label class="block"><input type="radio" name="q23" value="C" class="mr-2">C) Private Cloud or Hybrid.</label>
+                  <label class="block"><input type="radio" name="q23" value="D" class="mr-2">D) Community Cloud.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Features -->
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold training-heading mb-2 collapsible-heading cursor-pointer flex justify-between items-center text-emerald-700">
+              <span class="flex items-center">
+                <span class="checkbox mr-2 text-emerald-700">☐</span>
+                <span>24. Security Features</span>
+              </span>
+              <span class="indicator ml-2 text-2xl">+</span>
+            </h3>
+            <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
+              <p>Highlight security features: Role-based access control, data encryption (transit/rest), audit logs. Emphasize how on-premise deployment enhances security and meets compliance/data residency needs.</p>
+              <p>Adherence to relevant industry standards should be mentioned if applicable.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Mention one security feature or compliance aspect that is important to highlight when discussing SmartChat.</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q24" value="A" class="mr-2">A) On-premise deployment option.</label>
+                  <label class="block"><input type="radio" name="q24" value="B" class="mr-2">B) Role-based access control.</label>
+                  <label class="block"><input type="radio" name="q24" value="C" class="mr-2">C) Any one of: On-premise deployment option, Role-based access control, Data encryption, Audit logs, Separate indexing, Adherence to industry standards (if applicable).</label>
+                  <label class="block"><input type="radio" name="q24" value="D" class="mr-2">D) None of the above.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Integration Capabilities -->
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold training-heading mb-2 collapsible-heading cursor-pointer flex justify-between items-center text-emerald-700">
+              <span class="flex items-center">
+                <span class="checkbox mr-2 text-emerald-700">☐</span>
+                <span>25. Integration Capabilities</span>
+              </span>
+              <span class="indicator ml-2 text-2xl">+</span>
+            </h3>
+            <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
+              <p>SmartChat integrates with systems like SharePoint, Confluence, CRMs via APIs/connectors.</p>
+              <p>Workflows and responses can be customized for specific industry terms, branding, and processes.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Can SmartChat be integrated with platforms like WhatsApp?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q25" value="A" class="mr-2">A) No.</label>
+                  <label class="block"><input type="radio" name="q25" value="B" class="mr-2">B) Yes, but only through a third-party service.</label>
+                  <label class="block"><input type="radio" name="q25" value="C" class="mr-2">C) Yes, integration with platforms like WhatsApp is possible via API.</label>
+                  <label class="block"><input type="radio" name="q25" value="D" class="mr-2">D) Only through a custom development.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Support -->
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold training-heading mb-2 collapsible-heading cursor-pointer flex justify-between items-center text-emerald-700">
+              <span class="flex items-center">
+                <span class="checkbox mr-2 text-emerald-700">☐</span>
+                <span>26. Customer Support</span>
+              </span>
+              <span class="indicator ml-2 text-2xl">+</span>
+            </h3>
+            <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
+              <p>Outline available support packages (hours, response times, knowledge base access).</p>
+              <p>Explain the process for software updates and maintenance, including delivery of new features/patches (especially for on-premise).</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> What kind of support can customers expect after purchasing SmartChat?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q26" value="A" class="mr-2">A) Only email support.</label>
+                  <label class="block"><input type="radio" name="q26" value="B" class="mr-2">B) Only phone support.</label>
+                  <label class="block"><input type="radio" name="q26" value="C" class="mr-2">C) Access to support packages (defined hours/response times), knowledge base, software updates, and maintenance (including new features/patches).</label>
+                  <label class="block"><input type="radio" name="q26" value="D" class="mr-2">D) No support is provided.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Continuous Learning -->
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold training-heading mb-2 collapsible-heading cursor-pointer flex justify-between items-center text-emerald-700">
+              <span class="flex items-center">
+                <span class="checkbox mr-2 text-emerald-700">☐</span>
+                <span>27. Continuous Learning</span>
+              </span>
+              <span class="indicator ml-2 text-2xl">+</span>
+            </h3>
+            <div class="collapsible-content hidden ml-4 pl-4 border-l-2 border-emerald-200 text-gray-600">
+              <p>AI evolves rapidly; continuous learning is vital. Stay updated on new features, algorithms, use cases, and the competitive landscape.</p>
+              <p>Utilize ongoing training, knowledge bases, and follow-up sessions. Engage in self-directed learning.</p>
+              <button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>
+              <div class="question-area hidden mt-2 pt-2 border-t border-gray-300" data-correct-answer="C">
+                <p class="font-semibold">Reinforcement Question:</p>
+                <p class="mb-2"><strong>Q:</strong> Why is continuous learning important when selling AI technology like SmartChat?</p>
+                <div class="choices space-y-1 mb-2">
+                  <label class="block"><input type="radio" name="q27" value="A" class="mr-2">A) To learn about unrelated topics.</label>
+                  <label class="block"><input type="radio" name="q27" value="B" class="mr-2">B) To stay updated on industry trends.</label>
+                  <label class="block"><input type="radio" name="q27" value="C" class="mr-2">C) AI evolves rapidly; continuous learning is crucial to stay updated on new features, algorithms, use cases, and competitive landscape to remain effective in sales.</label>
+                  <label class="block"><input type="radio" name="q27" value="D" class="mr-2">D) To reduce the need for training.</label>
+                </div>
+                <div class="feedback mt-2 text-sm"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -559,53 +917,109 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const headings = document.querySelectorAll('.collapsible-heading');
+    const scoreMeter = document.getElementById('score-meter');
+    const progressMeter = document.getElementById('progress-meter');
+    const collapsibleHeadings = document.querySelectorAll('.collapsible-heading');
+    const totalSections = collapsibleHeadings.length;
+    let viewedSections = 0;
+    const viewedSectionsSet = new Set(); // Track viewed sections to avoid double counting
 
-    headings.forEach(heading => {
-      heading.addEventListener('click', function () {
-        const content = this.nextElementSibling;
-        const indicator = this.querySelector('.indicator');
-        const checkbox = this.querySelector('.checkbox');
+    // --- Score Meter Initialization ---
+    const allQuestionAreas = document.querySelectorAll('.question-area[data-correct-answer]');
+    const totalQuestions = allQuestionAreas.length;
+    let correctAnswers = 0;
+    const answeredCorrectlySet = new Set(); // Track questions answered correctly
+    scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
 
-        // Toggle content visibility
-        if (content.classList.contains('hidden')) {
-          content.classList.remove('hidden');
-          indicator.textContent = '-';
-          checkbox.textContent = '☑';
-        } else {
-          content.classList.add('hidden');
-          indicator.textContent = '+';
-          // REMOVED: checkbox.textContent = '☐'; // Unchecked state - Keep it checked once opened
-        }
-      });
-    });
-
-    // Progress Indicator Logic
-    const progressElement = document.getElementById('training-progress');
-    const allCheckboxes = document.querySelectorAll('.checkbox');
-    const totalSections = allCheckboxes.length;
-
-    function updateProgress() {
-      let checkedCount = 0;
-      allCheckboxes.forEach(checkbox => {
-        if (checkbox.textContent === '☑') {
-          checkedCount++;
-        }
-      });
-      const percentage = totalSections > 0 ? Math.round((checkedCount / totalSections) * 100) : 0;
-      progressElement.textContent = `Progress: ${checkedCount} / ${totalSections} sections completed (${percentage}%)`;
-    }
+    // Initial progress update (optional, if you want to load progress from storage later)
+    // progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
 
     // Update progress when a section is expanded
-    headings.forEach(heading => {
+    collapsibleHeadings.forEach(heading => {
       heading.addEventListener('click', () => {
-        // Update progress shortly after click to allow state change
-        setTimeout(updateProgress, 50); 
+        const content = heading.nextElementSibling;
+        const indicator = heading.querySelector('.indicator');
+        const checkbox = heading.querySelector('.checkbox');
+
+        // Toggle content visibility
+        const isHidden = content.classList.toggle('hidden');
+
+        // Update indicator
+        if (indicator) { indicator.textContent = isHidden ? '+' : '-'; }
+
+        // Update checkbox (Mark as viewed permanently)
+        if (!isHidden && checkbox) { // If opened (not hidden)
+          checkbox.textContent = '☑';
+        }
+
+        // Update section count for progress meter (only count first view)
+        const sectionId = heading.querySelector('span:nth-child(2)')?.textContent || 'unknown'; // Get section text as ID
+        if (!isHidden && !viewedSectionsSet.has(sectionId)) {
+          viewedSectionsSet.add(sectionId);
+          viewedSections = viewedSectionsSet.size;
+          updateProgressMeter(); // Update meter display
+        }
       });
     });
 
     // Initial progress calculation on page load
-    updateProgress();
+    updateProgressMeter(); // Use the renamed function
+
+    // --- Immediate Feedback on Radio Button Selection ---
+    document.querySelectorAll('.question-area').forEach(questionArea => {
+      const feedbackDiv = questionArea.querySelector('.feedback'); // Get feedback div once
+      const radioButtons = questionArea.querySelectorAll('input[type="radio"][name^="q"]');
+      const correctAnswer = questionArea.dataset.correctAnswer;
+
+      if (radioButtons.length > 0 && feedbackDiv) { // Ensure elements exist
+        const questionIdentifier = radioButtons[0].name; // Use radio group name as unique ID
+
+        radioButtons.forEach(radio => {
+          radio.addEventListener('change', () => {
+            if (radio.checked) { // When a radio button is selected
+              if (radio.value === correctAnswer) {
+                // Only increment score if this question hasn't been answered correctly before
+                if (!answeredCorrectlySet.has(questionIdentifier)) {
+                  correctAnswers++;
+                  answeredCorrectlySet.add(questionIdentifier);
+                  scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
+                }
+                feedbackDiv.textContent = 'Correct!';
+                feedbackDiv.className = 'feedback mt-2 text-sm text-green-600 font-semibold'; // Green for correct
+              } else {
+                feedbackDiv.textContent = 'Incorrect.'; // Simpler message for incorrect
+                feedbackDiv.className = 'feedback mt-2 text-sm text-red-600 font-semibold'; // Red for incorrect
+                // Note: We don't decrement score if they change from correct to incorrect
+              }
+            }
+          });
+        });
+      } // End if elements exist
+    });
+
+    // --- Script for Show/Hide Answer Buttons ---
+    document.querySelectorAll('.show-answer-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const answerDiv = button.nextElementSibling;
+        const isHidden = answerDiv.classList.contains('hidden');
+        answerDiv.classList.toggle('hidden');
+        button.textContent = isHidden ? 'Hide Answer' : 'Show Answer';
+      });
+    });
+
+    // --- Script for Toggle Questions Button ---
+    document.querySelectorAll('.toggle-questions-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const questionArea = button.nextElementSibling;
+        const isHidden = questionArea.classList.contains('hidden');
+        questionArea.classList.toggle('hidden');
+        button.textContent = isHidden ? 'Hide Questions' : 'Show Questions';
+      });
+    });
+
+    function updateProgressMeter() {
+      progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
+    }
   });
 </script>
 
