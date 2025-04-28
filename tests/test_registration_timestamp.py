@@ -1,11 +1,17 @@
 import psycopg2
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # --- Configuration ---
-# WARNING: Avoid hardcoding credentials in production code.
-# Use environment variables or a secure config management system.
-DB_URI = "postgres://avnadmin:AVNS_74vv4JY2W6lx9zD9Hoq@cynhdb-christopher-test.d.aivencloud.com:16321/defaultdb?sslmode=require"
+# WARNING: Avoid hardcoded credentials in production code.
+# Use environment variables loaded from .env
+DB_URI = os.environ.get("AIVEN_DB_URI")
+if not DB_URI:
+    raise ValueError("AIVEN_DB_URI not found in .env file or environment variables.")
 
 TABLE_NAME = "training_registrations"
 TEST_EMAIL = "test.user@example.com" # Using a generic test email
