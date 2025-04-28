@@ -69,14 +69,14 @@
         <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="home-nav" onclick="switchPage('home')"><i class="fas fa-home mr-1"></i>Home</a>
         <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="about-nav" onclick="switchPage('about')"><i class="fas fa-info-circle mr-1"></i>About</a>
         <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="team-nav" onclick="switchPage('team')"><i class="fas fa-users mr-1"></i>Team</a>
-        <a href="javascript:void(0)" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="training-nav" onclick="switchPage('training')"><i class="fas fa-graduation-cap mr-1"></i>Training</a>
+        <a href="{{ url_for('check_registration') }}" class="nav-link font-semibold text-gray-700 hover:text-emerald-600" id="training-nav"><i class="fas fa-graduation-cap mr-1"></i>Training</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Image Section -->
   <section class="mb-8">
-    <img src="images/home%20page.png" alt="Data center with abstract technology icons" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md">
+    <img src="{{ url_for('static', filename='images/Home page.png') }}" alt="Data center with abstract technology icons" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md">
   </section>
 
   <!-- HOME PAGE -->
@@ -95,7 +95,7 @@
       </div>
       <div class="mt-8 mb-2">
         <p class="text-lg font-semibold text-green-900">Ready to become a SmartChat expert?</p>
-        <a href="javascript:void(0)" onclick="switchPage('training')" class="inline-block mt-3 px-6 py-3 rounded-lg text-lg font-bold bg-green-600 hover:bg-green-700 text-white shadow transition">Start Training Now</a>
+        <a href="{{ url_for('check_registration') }}" class="inline-block mt-3 px-6 py-3 rounded-lg text-lg font-bold bg-green-600 hover:bg-green-700 text-white shadow transition">Start Training Now</a>
       </div>
       <div class="mt-10 text-base text-green-700">
         <strong>Contact:</strong> chris@sentient.io
@@ -160,7 +160,9 @@
     </section>
   </main>
 
-  <!-- TRAINING PAGE -->
+  <!-- TRAINING PAGE - Conditionally Rendered -->
+  {% if show_training %}
+
   <main id="training-section" class="smartchat-section" style="display:none;">
     <section id="training-section" class="py-12 bg-gradient-to-b from-emerald-50 to-green-100">
       <div class="container mx-auto px-6">
@@ -913,114 +915,126 @@
       </div>
     </section>
   </main>
-</body>
+  
+  {% endif %}
+  <!-- END TRAINING PAGE -->
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const scoreMeter = document.getElementById('score-meter');
-    const progressMeter = document.getElementById('progress-meter');
-    const collapsibleHeadings = document.querySelectorAll('.collapsible-heading');
-    const totalSections = collapsibleHeadings.length;
-    let viewedSections = 0;
-    const viewedSectionsSet = new Set(); // Track viewed sections to avoid double counting
+  <!-- Add JS for Collapsible Sections and Questions (Assuming it exists below) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const scoreMeter = document.getElementById('score-meter');
+      const progressMeter = document.getElementById('progress-meter');
+      const collapsibleHeadings = document.querySelectorAll('.collapsible-heading');
+      const totalSections = collapsibleHeadings.length;
+      let viewedSections = 0;
+      const viewedSectionsSet = new Set(); // Track viewed sections to avoid double counting
 
-    // --- Score Meter Initialization ---
-    const allQuestionAreas = document.querySelectorAll('.question-area[data-correct-answer]');
-    const totalQuestions = allQuestionAreas.length;
-    let correctAnswers = 0;
-    const answeredCorrectlySet = new Set(); // Track questions answered correctly
-    scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
+      // --- Score Meter Initialization ---
+      const allQuestionAreas = document.querySelectorAll('.question-area[data-correct-answer]');
+      const totalQuestions = allQuestionAreas.length;
+      let correctAnswers = 0;
+      const answeredCorrectlySet = new Set(); // Track questions answered correctly
+      scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
 
-    // Initial progress update (optional, if you want to load progress from storage later)
-    // progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
+      // Initial progress update (optional, if you want to load progress from storage later)
+      // progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
 
-    // Update progress when a section is expanded
-    collapsibleHeadings.forEach(heading => {
-      heading.addEventListener('click', () => {
-        const content = heading.nextElementSibling;
-        const indicator = heading.querySelector('.indicator');
-        const checkbox = heading.querySelector('.checkbox');
+      // Update progress when a section is expanded
+      collapsibleHeadings.forEach(heading => {
+        heading.addEventListener('click', () => {
+          const content = heading.nextElementSibling;
+          const indicator = heading.querySelector('.indicator');
+          const checkbox = heading.querySelector('.checkbox');
 
-        // Toggle content visibility
-        const isHidden = content.classList.toggle('hidden');
+          // Toggle content visibility
+          const isHidden = content.classList.toggle('hidden');
 
-        // Update indicator
-        if (indicator) { indicator.textContent = isHidden ? '+' : '-'; }
+          // Update indicator
+          if (indicator) { indicator.textContent = isHidden ? '+' : '-'; }
 
-        // Update checkbox (Mark as viewed permanently)
-        if (!isHidden && checkbox) { // If opened (not hidden)
-          checkbox.textContent = '☑';
-        }
+          // Update checkbox (Mark as viewed permanently)
+          if (!isHidden && checkbox) { // If opened (not hidden)
+            checkbox.textContent = '☑';
+          }
 
-        // Update section count for progress meter (only count first view)
-        const sectionId = heading.querySelector('span:nth-child(2)')?.textContent || 'unknown'; // Get section text as ID
-        if (!isHidden && !viewedSectionsSet.has(sectionId)) {
-          viewedSectionsSet.add(sectionId);
-          viewedSections = viewedSectionsSet.size;
-          updateProgressMeter(); // Update meter display
-        }
-      });
-    });
-
-    // Initial progress calculation on page load
-    updateProgressMeter(); // Use the renamed function
-
-    // --- Immediate Feedback on Radio Button Selection ---
-    document.querySelectorAll('.question-area').forEach(questionArea => {
-      const feedbackDiv = questionArea.querySelector('.feedback'); // Get feedback div once
-      const radioButtons = questionArea.querySelectorAll('input[type="radio"][name^="q"]');
-      const correctAnswer = questionArea.dataset.correctAnswer;
-
-      if (radioButtons.length > 0 && feedbackDiv) { // Ensure elements exist
-        const questionIdentifier = radioButtons[0].name; // Use radio group name as unique ID
-
-        radioButtons.forEach(radio => {
-          radio.addEventListener('change', () => {
-            if (radio.checked) { // When a radio button is selected
-              if (radio.value === correctAnswer) {
-                // Only increment score if this question hasn't been answered correctly before
-                if (!answeredCorrectlySet.has(questionIdentifier)) {
-                  correctAnswers++;
-                  answeredCorrectlySet.add(questionIdentifier);
-                  scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
-                }
-                feedbackDiv.textContent = 'Correct!';
-                feedbackDiv.className = 'feedback mt-2 text-sm text-green-600 font-semibold'; // Green for correct
-              } else {
-                feedbackDiv.textContent = 'Incorrect.'; // Simpler message for incorrect
-                feedbackDiv.className = 'feedback mt-2 text-sm text-red-600 font-semibold'; // Red for incorrect
-                // Note: We don't decrement score if they change from correct to incorrect
-              }
-            }
-          });
+          // Update section count for progress meter (only count first view)
+          const sectionId = heading.querySelector('span:nth-child(2)')?.textContent || 'unknown'; // Get section text as ID
+          if (!isHidden && !viewedSectionsSet.has(sectionId)) {
+            viewedSectionsSet.add(sectionId);
+            viewedSections = viewedSectionsSet.size;
+            updateProgressMeter(); // Update meter display
+          }
         });
-      } // End if elements exist
-    });
-
-    // --- Script for Show/Hide Answer Buttons ---
-    document.querySelectorAll('.show-answer-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const answerDiv = button.nextElementSibling;
-        const isHidden = answerDiv.classList.contains('hidden');
-        answerDiv.classList.toggle('hidden');
-        button.textContent = isHidden ? 'Hide Answer' : 'Show Answer';
       });
-    });
 
-    // --- Script for Toggle Questions Button ---
-    document.querySelectorAll('.toggle-questions-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const questionArea = button.nextElementSibling;
-        const isHidden = questionArea.classList.contains('hidden');
-        questionArea.classList.toggle('hidden');
-        button.textContent = isHidden ? 'Hide Questions' : 'Show Questions';
+      // Initial progress calculation on page load
+      updateProgressMeter(); // Use the renamed function
+
+      // --- Immediate Feedback on Radio Button Selection ---
+      document.querySelectorAll('.question-area').forEach(questionArea => {
+        const feedbackDiv = questionArea.querySelector('.feedback'); // Get feedback div once
+        const radioButtons = questionArea.querySelectorAll('input[type="radio"][name^="q"]');
+        const correctAnswer = questionArea.dataset.correctAnswer;
+
+        if (radioButtons.length > 0 && feedbackDiv) { // Ensure elements exist
+          const questionIdentifier = radioButtons[0].name; // Use radio group name as unique ID
+
+          radioButtons.forEach(radio => {
+            radio.addEventListener('change', () => {
+              if (radio.checked) { // When a radio button is selected
+                if (radio.value === correctAnswer) {
+                  // Only increment score if this question hasn't been answered correctly before
+                  if (!answeredCorrectlySet.has(questionIdentifier)) {
+                    correctAnswers++;
+                    answeredCorrectlySet.add(questionIdentifier);
+                    scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
+                  }
+                  feedbackDiv.textContent = 'Correct!';
+                  feedbackDiv.className = 'feedback mt-2 text-sm text-green-600 font-semibold'; // Green for correct
+                } else {
+                  feedbackDiv.textContent = 'Incorrect.'; // Simpler message for incorrect
+                  feedbackDiv.className = 'feedback mt-2 text-sm text-red-600 font-semibold'; // Red for incorrect
+                  // Note: We don't decrement score if they change from correct to incorrect
+                }
+              }
+            });
+          });
+        } // End if elements exist
       });
+
+      // --- Script for Show/Hide Answer Buttons ---
+      document.querySelectorAll('.show-answer-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const answerDiv = button.nextElementSibling;
+          const isHidden = answerDiv.classList.contains('hidden');
+          answerDiv.classList.toggle('hidden');
+          button.textContent = isHidden ? 'Hide Answer' : 'Show Answer';
+        });
+      });
+
+      // --- Script for Toggle Questions Button ---
+      document.querySelectorAll('.toggle-questions-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const questionArea = button.nextElementSibling;
+          const isHidden = questionArea.classList.contains('hidden');
+          questionArea.classList.toggle('hidden');
+          button.textContent = isHidden ? 'Hide Questions' : 'Show Questions';
+        });
+      });
+
+      function updateProgressMeter() {
+        progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
+      }
     });
+  </script>
 
-    function updateProgressMeter() {
-      progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
-    }
-  });
-</script>
-
+  <!-- Conditionally call JS to ensure training section is visible if needed -->
+  {% if show_training %}
+  <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+          switchPage('training'); // Make sure the training section is shown
+      });
+  </script>
+  {% endif %}
+</body>
 </html>
