@@ -9,28 +9,38 @@ A comprehensive sales enablement website for SmartChat resellers. This website p
   - Collapsible sections
   - Visited section indicators (checkboxes)
   - Training progress bar
+- Email Registration and Verification:
+  - Users access training via an email registration page (`/check_registration`).
+  - Entered email is checked against the database.
+  - A loading indicator provides feedback during submission.
 - Team information
 - Product details and differentiators
 - Sales process guidelines
 - Technical specifications
 - Homepage hero image
 
-## Local Development
+## Setup and Local Development
 
-To run the website locally:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit `http://localhost:8000` in your browser.
+1. **Create `.env` file:** See "Database Tests" section below for details on setting up the `.env` file with your `AIVEN_DB_URI`.
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the Flask App:**
+   ```bash
+   python app.py
+   ```
+   The application will typically run on `http://127.0.0.1:8000`.
 
 ## Structure
 
-- `index.html` - Main website content, incorporating details from `content.md`.
-- `content.md` - Original source content used to create `index.html`.
-- `css/` - Styling files
-- `images/` - Image assets
+- `app.py` - Flask application logic (routing, database interaction, session management).
+- `requirements.txt` - Python package dependencies.
+- `templates/` - HTML templates (`index.html`, `register.html`).
+- `static/` - Static assets (CSS, images, JavaScript).
+- `content/` - Markdown content files.
+- `.env` - Environment variables (database URI - **not committed to Git**).
+- `tests/` - Database testing scripts.
 
 ## Database Tests
 
