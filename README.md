@@ -64,8 +64,8 @@ This project includes scripts to test the connection and functionality with the 
 The test scripts are located in the `tests/` directory:
 
 -   `tests/aiven_db_test.py`: Connects to the DB, creates the `email_registrations` table (if it doesn't exist), inserts a test email, and reads it back. Uses `ON CONFLICT DO NOTHING` for inserts.
--   `tests/test_registration_timestamp.py`: Connects to the DB, creates the `training_registrations` table (if it doesn't exist), registers a test email with the current timestamp, and reads it back. Uses `ON CONFLICT DO NOTHING`.
 -   `tests/list_registrations.py`: Connects to the DB and lists all records currently present in the `email_registrations` table.
+-   `tests/drop_table.py`: Drops the `training_registrations` table if it exists, to clean up legacy schema.
 
 ### Running Tests
 

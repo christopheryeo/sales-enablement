@@ -29,13 +29,17 @@
             {% endif %}
         {% endwith %}
 
-        <form action="{{ url_for('check_registration') }}" method="post">
+        <form action="{{ url_for('training') }}" method="post">
             <div class="mb-4">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
                 <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
             </div>
+            <div class="mb-4">
+                <label for="organisation" class="block text-sm font-medium text-gray-700">Organisation</label>
+                <input type="text" name="organisation" id="organisation" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+            </div>
             <div>
-                <button type="submit" id="submit-button" class="w-full bg-red-500 text-white p-2 rounded hover:bg-red-600">Verify Email</button>
+                <button type="submit" id="submit-button" class="w-full bg-green-700 text-white p-2 rounded hover:bg-green-800">Register Email</button>
             </div>
             <!-- Progress Indicator (hidden by default) -->
             <div id="loading-indicator" class="mt-4 text-center text-gray-600" style="display: none;">

@@ -39,60 +39,40 @@ def home():
     # Pass show_training=False so the Jinja template hides the training section
     return render_template('index.html', show_training=False)
 
-@app.route('/check_registration', methods=['GET', 'POST'])
-def check_registration():
-    """Handles user registration check.
-    GET: Shows the registration form.
-    POST: Checks email against the database.
-    """
+@app.route('/training', methods=['GET', 'POST'])
+def training():
+    """Handles registration (if POST) and displays training page for registered users."""
     if request.method == 'POST':
         email = request.form.get('email')
-        if not email:
-            flash('Email is required.', 'error')
-            return redirect(url_for('check_registration'))
-
+        organisation = request.form.get('organisation')
+        if not email or not organisation:
+            flash('Email and Organisation are required to register.', 'error')
+            return render_template('register.html')
         conn = get_db_connection()
         if conn:
             try:
                 with conn.cursor() as cur:
-                    # Use the table name confirmed by the test script
-                    cur.execute("SELECT email FROM email_registrations WHERE email = %s", (email,))
-                    user = cur.fetchone()
-
-                if user:
-                    # Email found, mark session as registered and redirect to training
-                    session['registered'] = True
-                    session['user_email'] = email # Store email for potential future use
-                    flash(f"Welcome, {email}! Access granted.", "success")
-                    return redirect(url_for('training'))
-                else:
-                    # Email not found
-                    flash('Email address not found in our records. Please contact support.', 'error')
-                    return redirect(url_for('check_registration')) # Redirect back to form
+                    # Use correct column name with proper casing
+                    cur.execute(
+                        "INSERT INTO email_registrations (email, \"Organisation\") VALUES (%s, %s)\n"
+                        "ON CONFLICT (email) DO UPDATE SET \"Organisation\" = EXCLUDED.\"Organisation\" RETURNING id;",
+                        (email, organisation)
+                    )
+                    conn.commit()
+                session['registered'] = True
+                session['user_email'] = email
+                session['organisation'] = organisation
+                flash(f"Welcome, {email}! Access granted.", 'success')
             except Exception as e:
-                print(f"Database query error: {e}")
-                flash("An error occurred while checking your email. Please try again later.", "error")
-                return redirect(url_for('check_registration'))
+                print(f"Error during registration: {e}")
+                flash('Registration failed. Please try again.', 'error')
             finally:
-                if conn:
-                    conn.close()
-        else:
-            # Error connecting to DB already handled by get_db_connection
-            return redirect(url_for('check_registration'))
-
-    # GET request: show the registration form
-    return render_template('register.html')
-
-@app.route('/training')
-def training():
-    """Displays the training page, only if the user is marked as registered in the session."""
-    if session.get('registered'):
-        # User is registered, render index.html with training visible
+                conn.close()
         return render_template('index.html', show_training=True)
-    else:
-        # User not registered or session expired
-        flash('You must verify your email to access the training.', 'warning')
-        return redirect(url_for('check_registration'))
+    # GET request
+    if session.get('registered'):
+        return render_template('index.html', show_training=True)
+    return render_template('register.html')
 
 @app.route('/logout')
 def logout():
