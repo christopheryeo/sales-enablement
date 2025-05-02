@@ -64,8 +64,10 @@ This project includes scripts to test the connection and functionality with the 
 The test scripts are located in the `tests/` directory:
 
 -   `tests/aiven_db_test.py`: Connects to the DB, creates the `email_registrations` table (if it doesn't exist), inserts a test email, and reads it back. Uses `ON CONFLICT DO NOTHING` for inserts.
--   `tests/list_registrations.py`: Connects to the DB and lists all records currently present in the `email_registrations` table.
--   `tests/drop_table.py`: Drops the `training_registrations` table if it exists, to clean up legacy schema.
+-   `tests/list_records.py`: Connects to the DB and lists all records currently present in the `email_registrations` table.
+-   `tests/delete_records.py`: Deletes all records from the `email_registrations` table for testing purposes.
+-   `tests/add_column.py`: Adds the "Organisation" column to the `email_registrations` table if it doesn't exist.
+-   `tests/get_schema.py`: Shows the current schema of the project tables.
 
 ### Running Tests
 
@@ -74,4 +76,63 @@ Navigate to the project root directory in your terminal and run a script using:
 ```bash
 python tests/<script_name>.py
 # Example:
-python tests/list_registrations.py
+python tests/list_records.py
+```
+
+## Deployment (May 2, 2025)
+
+The application has been successfully deployed to Vercel with the following enhancements:
+
+1. **Vercel Configuration**:
+   - Added `vercel.json` to properly configure the Python serverless functions
+   - Created explicit static file route handler to ensure images and assets are served correctly
+   - Renamed static assets to avoid spaces in filenames for better URL compatibility
+
+2. **Database Integration**:
+   - Connected to remote PostgreSQL database via environment variables in Vercel
+   - Implemented proper error handling for database connections
+   - Consolidated database access through the `/training` route
+
+3. **User Experience Improvements**:
+   - Streamlined registration flow with direct insertion/update of records
+   - Updated button styling and text for better clarity
+   - Added progress tracking with interactive checkboxes
+   - Implemented reinforcement questions with show/hide functionality
+
+To deploy updates to Vercel, simply push changes to the GitHub repository. The deployment will automatically trigger and build the latest version.
+
+## Audit Trail
+
+### May 2, 2025
+- Deployed application to Vercel with proper serverless configuration
+- Fixed static file serving in Vercel's serverless environment
+- Renamed hero image to avoid spaces in filenames
+- Updated README with deployment information
+- Added explicit route for static files in app.py
+
+### May 1, 2025
+- Cleaned up database access code
+- Fixed SQL query to use proper column name casing ("Organisation")
+- Consolidated registration logic into the /training route
+- Tested database insertion and retrieval
+- Removed obsolete routes and scripts
+
+### April 28, 2025
+- Updated README with Flask setup instructions
+- Implemented user registration confirmation
+- Added database test scripts documentation
+- Created script to list all email registrations
+- Refined database test scripts
+- Set up .env file for database URI configuration
+
+### April 26, 2025
+- Created interactive training quizzes with show/hide functionality
+- Added reinforcement questions to training sections
+- Implemented JavaScript for quiz interaction
+
+### April 25, 2025
+- Added progress tracking with interactive checkboxes
+- Verified training page reflects content.md
+- Improved collapsible training sections
+- Synchronized content.md and index.html
+- Added hero image to homepage
