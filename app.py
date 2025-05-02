@@ -88,6 +88,12 @@ def serve_content(filename):
     """Serves files from the content directory."""
     return send_from_directory('content', filename)
 
+# Add explicit route for static files to ensure they work in Vercel's serverless environment
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    """Explicitly serve files from the static directory."""
+    return send_from_directory('static', filename)
+
 
 if __name__ == '__main__':
     # Use debug=True for development; it enables auto-reloading and detailed error pages.
