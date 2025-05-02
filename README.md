@@ -104,35 +104,55 @@ To deploy updates to Vercel, simply push changes to the GitHub repository. The d
 ## Audit Trail
 
 ### May 2, 2025
-- Deployed application to Vercel with proper serverless configuration
-- Fixed static file serving in Vercel's serverless environment
-- Renamed hero image to avoid spaces in filenames
-- Updated README with deployment information
-- Added explicit route for static files in app.py
+- **e2352de**: Fixed static file serving for Vercel deployment and renamed hero image
+  - Added explicit route for static files in app.py
+  - Renamed "Home page.png" to "home-page.png" to avoid URL encoding issues
+  - Updated HTML template to reference the renamed file
+- **c10629d**: Added Vercel deployment configuration
+  - Created vercel.json with Python serverless function settings
+  - Configured proper routing for Flask application
+- **fb70011**: Added Audit Trail section to README.md
 
 ### May 1, 2025
-- Cleaned up database access code
-- Fixed SQL query to use proper column name casing ("Organisation")
-- Consolidated registration logic into the /training route
-- Tested database insertion and retrieval
-- Removed obsolete routes and scripts
+- **3783d3f**: Cleaned up database access code
+  - Fixed SQL query to use proper column name casing ("Organisation")
+  - Consolidated registration logic into the /training route
+  - Tested database insertion and retrieval
+  - Removed obsolete routes and scripts
 
 ### April 28, 2025
-- Updated README with Flask setup instructions
-- Implemented user registration confirmation
-- Added database test scripts documentation
-- Created script to list all email registrations
-- Refined database test scripts
-- Set up .env file for database URI configuration
+- **d3d64f4**: Updated README with Flask setup and email verification
+  - Added detailed setup instructions for local development
+- **4faf051**: Implemented user registration confirmation
+  - Added form validation and success messages
+- **352861e**: Added section on database test scripts to README
+  - Documented test script usage and configuration
+- **861d0bc**: Created script to list all email registrations
+  - Added functionality to view database records
+- **f19de1e**: Refined database test scripts
+  - Improved error handling and output formatting
+- **dfeaf76**: Created tests directory with database tests using .env for URI
+  - Set up environment variable configuration for database access
 
 ### April 26, 2025
-- Created interactive training quizzes with show/hide functionality
-- Added reinforcement questions to training sections
-- Implemented JavaScript for quiz interaction
+- **c4b3553**: Created interactive training quizzes
+  - Added reinforcement questions to training sections
+  - Implemented JavaScript for quiz interaction
+  - Added show/hide functionality for answers
 
 ### April 25, 2025
-- Added progress tracking with interactive checkboxes
-- Verified training page reflects content.md
-- Improved collapsible training sections
-- Synchronized content.md and index.html
-- Added hero image to homepage
+- **9e7ebbc**: Updated README with recent features
+- **5667de6**: Added hero image to homepage
+- **f56af89**: Refactored content, added progress bar, fixed styling/interactivity
+- **be900d4**: Added training checklist to track progress
+  - Implemented interactive checkboxes that mark completed sections
+
+### April 24, 2025
+- **5ed36ee**: Verified that the training page reflects content.md
+- **3c7e971**: Improved collapsible training page
+  - Enhanced user experience with expandable sections
+
+### April 23, 2025
+- **bb4259e**: Synchronized content.md and index.html
+- **603068c**: Updated README and added images
+- **2c8f98a**: Initial commit: Sales enablement website setup
