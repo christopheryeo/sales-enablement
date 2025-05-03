@@ -104,6 +104,11 @@ To deploy updates to Vercel, simply push changes to the GitHub repository. The d
 ## Audit Trail
 
 ### May 2, 2025
+- **b5e31c9**: Integrated git commit history into Audit Trail section
+  - Enhanced Audit Trail with detailed commit information
+  - Added commit hashes for better traceability
+  - Expanded historical entries with specific changes
+  - Organized entries chronologically
 - **e2352de**: Fixed static file serving for Vercel deployment and renamed hero image
   - Added explicit route for static files in app.py
   - Renamed "Home page.png" to "home-page.png" to avoid URL encoding issues

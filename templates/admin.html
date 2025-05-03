@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartChat Training Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-white shadow-md py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <img src="https://sentient.io/img/logo1.png" alt="Sentient.io logo" style="height:40px;" class="mr-3">
+          <h1 class="text-xl font-bold text-emerald-700">SmartChat Training Admin</h1>
+        </div>
+        <a href="{{ url_for('home') }}" class="text-green-600 hover:text-green-800">
+          <i class="fas fa-home mr-1"></i>Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">Training Progress Overview</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+          <h3 class="text-lg font-semibold text-green-800 mb-2">Total Registrations</h3>
+          <p class="text-3xl font-bold text-green-600">{{ total_users }}</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <h3 class="text-lg font-semibold text-blue-800 mb-2">Sections Viewed</h3>
+          <p class="text-3xl font-bold text-blue-600">{{ total_sections }}</p>
+        </div>
+        <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+          <h3 class="text-lg font-semibold text-purple-800 mb-2">Quizzes Completed</h3>
+          <p class="text-3xl font-bold text-purple-600">{{ total_quizzes }}</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end mb-4">
+        <form id="clear-records-form" method="POST" action="{{ url_for('clear_records') }}" onsubmit="return confirm('Are you sure you want to delete ALL records? This cannot be undone.');">
+          <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded shadow">
+            <i class="fas fa-trash-alt mr-1"></i>Clear Records
+          </button>
+        </form>
+      </div>
+      <h3 class="text-xl font-semibold mb-3">User Progress</h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-3 px-4 text-left">Email</th>
+              <th class="py-3 px-4 text-left">Organisation</th>
+              <th class="py-3 px-4 text-center">Sections Completed</th>
+              <th class="py-3 px-4 text-center">Quizzes Completed</th>
+              <th class="py-3 px-4 text-left">Last Active</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            {% for user in users %}
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4">{{ user.email }}</td>
+              <td class="py-3 px-4">{{ user.organisation }}</td>
+              <td class="py-3 px-4 text-center">{{ user.sections_completed }}</td>
+              <td class="py-3 px-4 text-center">{{ user.quizzes_completed }}</td>
+              <td class="py-3 px-4">{{ user.last_active }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white py-4 border-t">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      <p>&copy; 2025 Sentient.io. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
