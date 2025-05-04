@@ -1,7 +1,8 @@
 import os
 import psycopg2
 import datetime
-from flask import Flask, render_template, request, redirect, url_for, session, flash, send_from_directory, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, flash, send_from_directory, jsonify, make_response
+import uuid  # For generating session UUIDs
 from dotenv import load_dotenv
 import secrets # For generating a secret key if not set
 import json # For handling JSON data
@@ -38,12 +39,28 @@ def get_db_connection():
 @app.route('/')
 def home():
     """Renders the main page (index.html) without the training section initially visible."""
-    # Pass show_training=False so the Jinja template hides the training section
+    # User Session Cookie logic (V.1.0.2)
+    session_id = request.cookies.get('session_id')
+    if not session_id:
+        session_id = str(uuid.uuid4())
+        resp = make_response(render_template('index.html', show_training=False))
+        resp.set_cookie('session_id', session_id, httponly=True, secure=True, samesite='Lax')
+        # Optionally: log or use session_id for backend logic here
+        return resp
+    # Optionally: validate session_id format here
+    # Optionally: use session_id for backend logic here
     return render_template('index.html', show_training=False)
 
 @app.route('/training', methods=['GET', 'POST'])
 def training():
     """Handles registration (if POST) and displays training page for registered users."""
+    # User Session Cookie logic (V.1.0.2)
+    session_id = request.cookies.get('session_id')
+    if not session_id:
+        session_id = str(uuid.uuid4())
+        resp = make_response(render_template('index.html', show_training=True))
+        resp.set_cookie('session_id', session_id, httponly=True, secure=True, samesite='Lax')
+        return resp
     if request.method == 'POST':
         email = request.form.get('email')
         organisation = request.form.get('organisation')

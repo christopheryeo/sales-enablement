@@ -13,3 +13,6 @@ Add your raw feature ideas here before they are ready for planning. Use this doc
 - **Use cookies to track user quiz completion** (V.1.0.4)
   - Record quiz completion and scores in cookies to provide feedback, unlock achievements, or recommend further training based on quiz performance.
 
+- **Display app version in menu bar** (V.1.0.5)
+  - Show the current application version in small font somewhere in the menu bar for quick reference and improved transparency for users and developers.
+

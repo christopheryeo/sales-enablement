@@ -81,6 +81,42 @@ python tests/list_records.py
 
 ## Audit Trail
 
+## Git Versions and Tags
+
+| Tag                        | Commit ID | Description                                                      |
+|----------------------------|-----------|------------------------------------------------------------------|
+| V0.0.1                     | 2c8f98a   | Initial commit: Sales enablement website setup                   |
+| V0.0.2                     | 603068c   | Update README and add images                                     |
+| V0.0.3                     | bb4259e   | Sync content.md and index.html                                   |
+| V0.0.4                     | 3c7e971   | Improved collapsible training page                               |
+| V0.0.5                     | 5ed36ee   | Verified that the training page reflects content.md              |
+| V0.0.6                     | be900d4   | Added training checklist to track progress                       |
+| V0.0.7                     | f56af89   | Refactor content, add progress bar, fix styling/interactivity    |
+| V0.0.8                     | 5667de6   | Added hero image                                                 |
+| V0.0.9                     | 9e7ebbc   | Update README with recent features                               |
+| V0.0.10                    | c4b3553   | Created training quizzes                                         |
+| V0.0.11                    | dfeaf76   | Create tests dir, add DB tests using .env for URI                |
+| V0.0.12                    | f19de1e   | Refine DB test scripts                                           |
+| V0.0.13                    | 861d0bc   | Add test script to list all email registrations                  |
+| V0.0.14                    | 352861e   | Docs: Add section on database test scripts to README             |
+| V0.0.15                    | 4faf051   | User registration confirmation                                   |
+| V0.0.16                    | d3d64f4   | Update README with Flask setup and email verification            |
+| V0.0.17                    | 3783d3f   | Cleaned up database access                                       |
+| V0.0.18                    | c10629d   | Add Vercel deployment configuration                              |
+| V0.0.19                    | e2352de   | Fix static file serving for Vercel deployment and rename hero image |
+| V0.0.20                    | fb70011   | Add Audit Trail section to README.md                             |
+| V0.0.21                    | b5e31c9   | Integrate git commit history into Audit Trail section            |
+| V.1.0.1                    | b81eb11   | Added an admin page to manage database                           |
+| admin-page-db-management-1 | b81eb11   | Added an admin page to manage database                           |
+| planning-docs-created      | bdf11c2   | Created planning documents for this project                      |
+
+## Next version to be implemented
+
+The next version to be implemented is **V1.0.2**.
+
+*This section should be auto-incremented as features are moved from backlog to planning/implementation. As versions are incremented, ensure the Audit Trail section is also updated with relevant information about the changes or features added in each version.*
+
+
 ### May 4, 2025
 - **Renamed planning folders to version tags:** All feature planning folders under `plans/1_planning/` were renamed to use their respective version tags (`V.1.0.2`, `V.1.0.3`, `V.1.0.4`) for improved clarity and traceability in the planning process.
   - Each versioned subdirectory contains:
@@ -88,18 +124,19 @@ python tests/list_records.py
     - `spec.md`: Outlines intended functionality, technical scope, UI options, and trade-offs.
     - `design.md`: Captures architectural notes, component interactions, visual sketches, and early design considerations.
 - **docs directory structure added**: Created high-level documentation directories to organize feature planning and reference materials
-  - `docs/0_backlog/`: Raw feature ideas and initial brainstorming
-  - `docs/1_planning/`: Features under planning, with specs and designs
-  - `docs/2_inprogress/`: Features currently being implemented, with progress notes
-  - `docs/3_completed/`: Completed features, with final specs and summaries
-  - `docs/4_archived/`: Archived or deprecated features
-  - `docs/_reference/`: Architecture, style guides, and completed features log
-  - `docs/_templates/`: Templates for specs and design docs
+  - `plans/0_backlog/`: Raw feature ideas and initial brainstorming
+  - `plans/1_planning/`: Features under planning, with specs and designs
+  - `plans/2_inprogress/`: Features currently being implemented, with progress notes
+  - `plans/3_completed/`: Completed features, with final specs and summaries
+  - `plans/4_archived/`: Archived or deprecated features
+  - `plans/_reference/`: Architecture, style guides, and completed features log
+  - `plans/_templates/`: Templates for specs and design docs
 - **admin-page-db-management-1**: Added admin page for database management
   - Introduced `/admin` dashboard for viewing user progress statistics (sections and quizzes completed, last activity)
   - Added `/admin/clear` endpoint for admins to delete all user records
   - Secured admin actions to authorized emails only
   - Enhanced debug logging for admin and training routes
+- **User Session Cookies:** Completed 2025-05-04. Enables secure, persistent user session tracking with UUID cookies for personalized experiences and analytics, verified by automated and manual tests.
 
 ### May 2, 2025
 - **b5e31c9**: Integrated git commit history into Audit Trail section
