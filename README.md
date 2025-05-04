@@ -79,29 +79,27 @@ python tests/<script_name>.py
 python tests/list_records.py
 ```
 
-## Deployment (May 2, 2025)
-
-The application has been successfully deployed to Vercel with the following enhancements:
-
-1. **Vercel Configuration**:
-   - Added `vercel.json` to properly configure the Python serverless functions
-   - Created explicit static file route handler to ensure images and assets are served correctly
-   - Renamed static assets to avoid spaces in filenames for better URL compatibility
-
-2. **Database Integration**:
-   - Connected to remote PostgreSQL database via environment variables in Vercel
-   - Implemented proper error handling for database connections
-   - Consolidated database access through the `/training` route
-
-3. **User Experience Improvements**:
-   - Streamlined registration flow with direct insertion/update of records
-   - Updated button styling and text for better clarity
-   - Added progress tracking with interactive checkboxes
-   - Implemented reinforcement questions with show/hide functionality
-
-To deploy updates to Vercel, simply push changes to the GitHub repository. The deployment will automatically trigger and build the latest version.
-
 ## Audit Trail
+
+### May 4, 2025
+- **Renamed planning folders to version tags:** All feature planning folders under `plans/1_planning/` were renamed to use their respective version tags (`V.1.0.2`, `V.1.0.3`, `V.1.0.4`) for improved clarity and traceability in the planning process.
+  - Each versioned subdirectory contains:
+    - `README.md`: States the feature goal, key requirements, target audience, and open questions.
+    - `spec.md`: Outlines intended functionality, technical scope, UI options, and trade-offs.
+    - `design.md`: Captures architectural notes, component interactions, visual sketches, and early design considerations.
+- **docs directory structure added**: Created high-level documentation directories to organize feature planning and reference materials
+  - `docs/0_backlog/`: Raw feature ideas and initial brainstorming
+  - `docs/1_planning/`: Features under planning, with specs and designs
+  - `docs/2_inprogress/`: Features currently being implemented, with progress notes
+  - `docs/3_completed/`: Completed features, with final specs and summaries
+  - `docs/4_archived/`: Archived or deprecated features
+  - `docs/_reference/`: Architecture, style guides, and completed features log
+  - `docs/_templates/`: Templates for specs and design docs
+- **admin-page-db-management-1**: Added admin page for database management
+  - Introduced `/admin` dashboard for viewing user progress statistics (sections and quizzes completed, last activity)
+  - Added `/admin/clear` endpoint for admins to delete all user records
+  - Secured admin actions to authorized emails only
+  - Enhanced debug logging for admin and training routes
 
 ### May 2, 2025
 - **b5e31c9**: Integrated git commit history into Audit Trail section
