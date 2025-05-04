@@ -1,6 +1,6 @@
 # User Session Cookies
 
-**Version:** V.1.0.2
+**Version:** V1.0.2
 
 ## Goal
 Implement cookie-based session tracking to persist user login or visit state across sessions, enabling personalized experiences and analytics.

@@ -1,6 +1,6 @@
 # Specification: Quiz Completion Cookies
 
-**Version:** V.1.0.4
+**Version:** V1.0.4
 
 ## Intended Functionality
 - Mark quizzes as complete when user submits answers.

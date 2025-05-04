@@ -1,6 +1,6 @@
 # Design Notes: Quiz Completion Cookies
 
-**Version:** V.1.0.4
+**Version:** V1.0.4
 
 - Store quiz completion and scores in a cookie as a JSON object.
 - On page load, read cookie and update UI (checklists, badges, etc.).

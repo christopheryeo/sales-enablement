@@ -85,30 +85,30 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
-| V0.0.1                     | 2c8f98a   | Initial commit: Sales enablement website setup                   |
-| V0.0.2                     | 603068c   | Update README and add images                                     |
-| V0.0.3                     | bb4259e   | Sync content.md and index.html                                   |
-| V0.0.4                     | 3c7e971   | Improved collapsible training page                               |
-| V0.0.5                     | 5ed36ee   | Verified that the training page reflects content.md              |
-| V0.0.6                     | be900d4   | Added training checklist to track progress                       |
-| V0.0.7                     | f56af89   | Refactor content, add progress bar, fix styling/interactivity    |
-| V0.0.8                     | 5667de6   | Added hero image                                                 |
-| V0.0.9                     | 9e7ebbc   | Update README with recent features                               |
-| V0.0.10                    | c4b3553   | Created training quizzes                                         |
-| V0.0.11                    | dfeaf76   | Create tests dir, add DB tests using .env for URI                |
-| V0.0.12                    | f19de1e   | Refine DB test scripts                                           |
-| V0.0.13                    | 861d0bc   | Add test script to list all email registrations                  |
-| V0.0.14                    | 352861e   | Docs: Add section on database test scripts to README             |
-| V0.0.15                    | 4faf051   | User registration confirmation                                   |
-| V0.0.16                    | d3d64f4   | Update README with Flask setup and email verification            |
-| V0.0.17                    | 3783d3f   | Cleaned up database access                                       |
-| V0.0.18                    | c10629d   | Add Vercel deployment configuration                              |
-| V0.0.19                    | e2352de   | Fix static file serving for Vercel deployment and rename hero image |
-| V0.0.20                    | fb70011   | Add Audit Trail section to README.md                             |
-| V0.0.21                    | b5e31c9   | Integrate git commit history into Audit Trail section            |
-| V.1.0.1                    | b81eb11   | Added an admin page to manage database                           |
-| admin-page-db-management-1 | b81eb11   | Added an admin page to manage database                           |
+| V1.0.2                     | 02c3bab   | V1.0.2: User Session Cookies - Secure persistent session tracking with UUID cookies |
 | planning-docs-created      | bdf11c2   | Created planning documents for this project                      |
+| V1.0.1                     | b81eb11   | Added an admin page to manage database                           |
+| V0.0.21                    | b5e31c9   | Integrate git commit history into Audit Trail section            |
+| V0.0.20                    | fb70011   | Add Audit Trail section to README.md                             |
+| V0.0.19                    | e2352de   | Fix static file serving for Vercel deployment and rename hero image |
+| V0.0.18                    | c10629d   | Add Vercel deployment configuration                              |
+| V0.0.17                    | 3783d3f   | Cleaned up database access                                       |
+| V0.0.16                    | d3d64f4   | Update README with Flask setup and email verification            |
+| V0.0.15                    | 4faf051   | User registration confirmation                                   |
+| V0.0.14                    | 352861e   | Docs: Add section on database test scripts to README             |
+| V0.0.13                    | 861d0bc   | Add test script to list all email registrations                  |
+| V0.0.12                    | f19de1e   | Refine DB test scripts                                           |
+| V0.0.11                    | dfeaf76   | Create tests dir, add DB tests using .env for URI                |
+| V0.0.10                    | c4b3553   | Created training quizzes                                         |
+| V0.0.9                     | 9e7ebbc   | Update README with recent features                               |
+| V0.0.8                     | 5667de6   | Added hero image                                                 |
+| V0.0.7                     | f56af89   | Refactor content, add progress bar, fix styling/interactivity    |
+| V0.0.6                     | be900d4   | Added training checklist to track progress                       |
+| V0.0.5                     | 5ed36ee   | Verified that the training page reflects content.md              |
+| V0.0.4                     | 3c7e971   | Improved collapsible training page                               |
+| V0.0.3                     | bb4259e   | Sync content.md and index.html                                   |
+| V0.0.2                     | 603068c   | Update README and add images                                     |
+| V0.0.1                     | 2c8f98a   | Initial commit: Sales enablement website setup                   |
 
 ## Next version to be implemented
 

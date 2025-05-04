@@ -1,6 +1,6 @@
 # Quiz Completion Cookies
 
-**Version:** V.1.0.4
+**Version:** V1.0.4
 
 ## Goal
 Record quiz completion and scores in cookies to provide feedback, unlock achievements, or recommend further training based on quiz performance.

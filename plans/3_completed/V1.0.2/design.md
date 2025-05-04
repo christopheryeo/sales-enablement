@@ -1,6 +1,6 @@
 # Design Notes: User Session Cookies
 
-**Version:** V.1.0.2
+**Version:** V1.0.2
 
 - Use Flask's session or cookie utilities for backend integration.
 - Consider a `session_id` UUID stored in a cookie.

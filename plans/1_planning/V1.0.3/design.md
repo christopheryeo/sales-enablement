@@ -1,6 +1,6 @@
 # Design Notes: Section Completion Cookies
 
-**Version:** V.1.0.3
+**Version:** V1.0.3
 
 - Store completed section IDs in a cookie as a JSON array.
 - On page load, read cookie and update UI accordingly.

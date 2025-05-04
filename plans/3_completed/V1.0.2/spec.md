@@ -1,6 +1,6 @@
 # Specification: User Session Cookies
 
-**Version:** V.1.0.2
+**Version:** V1.0.2
 
 ## Intended Functionality
 - Assign a unique session ID to each user upon first visit.

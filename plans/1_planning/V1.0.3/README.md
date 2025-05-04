@@ -1,6 +1,6 @@
 # Section Completion Cookies
 
-**Version:** V.1.0.3
+**Version:** V1.0.3
 
 ## Goal
 Store section completion status in cookies so users can resume training where they left off and visualize their progress even if not logged in.

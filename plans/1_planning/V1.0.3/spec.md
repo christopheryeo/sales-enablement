@@ -1,6 +1,6 @@
 # Specification: Section Completion Cookies
 
-**Version:** V.1.0.3
+**Version:** V1.0.3
 
 ## Intended Functionality
 - Mark sections as complete when user expands/clicks through them.
