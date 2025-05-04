@@ -85,12 +85,13 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
-| V1.0.2                     | 02c3bab   | V1.0.2: User Session Cookies - Secure persistent session tracking with UUID cookies |
+| V1.0.2b                    | a011ad5   | Tidied up V1.0.2 directory structure                             |
+| V1.0.2                     | 02c3bab   | V1.0.2: User Cookies Persistent session with UUID cookies        |
 | planning-docs-created      | bdf11c2   | Created planning documents for this project                      |
 | V1.0.1                     | b81eb11   | Added an admin page to manage database                           |
 | V0.0.21                    | b5e31c9   | Integrate git commit history into Audit Trail section            |
 | V0.0.20                    | fb70011   | Add Audit Trail section to README.md                             |
-| V0.0.19                    | e2352de   | Fix static file serving for Vercel deployment and rename hero image |
+| V0.0.19                    | e2352de   | Fix file serving for Vercel deployment and rename hero image     |
 | V0.0.18                    | c10629d   | Add Vercel deployment configuration                              |
 | V0.0.17                    | 3783d3f   | Cleaned up database access                                       |
 | V0.0.16                    | d3d64f4   | Update README with Flask setup and email verification            |
