@@ -85,6 +85,7 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
+| V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                              |
 | V1.0.2b                    | a011ad5   | Tidied up V1.0.2 directory structure                             |
 | V1.0.2                     | 02c3bab   | V1.0.2: User Cookies Persistent session with UUID cookies        |
 | planning-docs-created      | bdf11c2   | Created planning documents for this project                      |
