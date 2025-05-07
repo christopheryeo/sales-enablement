@@ -79,12 +79,11 @@ python tests/<script_name>.py
 python tests/list_records.py
 ```
 
-## Audit Trail
-
 ## Git Versions and Tags
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
+| V1.0.2d                    | 041ff28   | Checked training content                                         |
 | V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                              |
 | V1.0.2b                    | a011ad5   | Tidied up V1.0.2 directory structure                             |
 | V1.0.2                     | 02c3bab   | V1.0.2: User Cookies Persistent session with UUID cookies        |
@@ -114,10 +113,18 @@ python tests/list_records.py
 
 ## Next version to be implemented
 
-The next version to be implemented is **V1.0.2**.
+The next version to be implemented is **V1.0.3**.
 
 *This section should be auto-incremented as features are moved from backlog to planning/implementation. As versions are incremented, ensure the Audit Trail section is also updated with relevant information about the changes or features added in each version.*
 
+## Audit Trail
+
+### May 5, 2025
+- **Checked training content (V1.0.2d):**
+  - Verified and synchronized all training content between `content.md` and the interactive training sections in `index.html`.
+  - Removed the "Market Overview Introduction" section from both `content.md` and `index.html`.
+  - Fixed correct answers for reinforcement questions to ensure consistency between markdown documentation and website quizzes.
+  - Updated the Git Versions and Tags table with the new version and commit.
 
 ### May 4, 2025
 - **Renamed planning folders to version tags:** All feature planning folders under `plans/1_planning/` were renamed to use their respective version tags (`V.1.0.2`, `V.1.0.3`, `V.1.0.4`) for improved clarity and traceability in the planning process.

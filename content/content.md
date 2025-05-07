@@ -14,6 +14,55 @@ Processing:
 
 # SmartChat Reseller Training Website Content
 
+## Training Page Structure (Clusters & Components)
+
+This section documents the structure of the Training page for quick reference. Each cluster groups related components as they appear in the training flow.
+
+### Cluster: Orientation & Objectives
+- Training Introduction
+- Welcome & Objectives
+
+### Cluster: Product Differentiators & Technology
+- Key Differentiators Overview
+- Private AI RAG System
+- On-Premise Deployment
+- Separate Indexing
+- Multi-Model Support
+
+### Cluster: Customer & Market Focus
+- Ideal Customer Profile (ICP)
+- The Future of Domain Knowledge: Proprietary and Specialized Context
+- Target Industries and Use Cases
+- Industry Examples (Finance & Government)
+
+### Cluster: Competitive and Sales Positioning
+- Competitive Positioning
+- Sales Process
+- Key points in Sales Process
+- Lead Qualification
+- Consultative & Value-Based Selling
+- Handling Objections
+
+### Cluster: Sales Execution & Closing
+- Proof of Concept (POC) & Pilot Programs
+- Closing & Post-Sale
+- Pricing
+
+### Cluster: Technical & Enablement Resources
+- Technical Details
+- Enablement & Support
+- Deployment Options
+- Security Features
+- Integration Capabilities
+
+### Cluster: Support, Learning & Completion
+- Customer Support
+- Continuous Learning
+- Conclusion
+- Training Completion & Next Steps
+
+<!-- ---- End of Training Page Structure Outline ---- -->
+
 # Page: Homepage
 
 ## Component: Welcome Banner
@@ -55,7 +104,7 @@ Our comprehensive training program will give you everything you need to successf
 
 # Page: Team
 
-## Component: SmartChat Team
+## Component: Sentint Team
 
 *   Christopher Yeo - Founder / CEO - Chief architect behind Sentient.io, he leads with over 25 years of experience in the technology industry and as an experienced technopreneur under his belt.
 *   Eddie Leong - CFO - Specialises in finance as well as IT project / program management, application management.
@@ -70,9 +119,11 @@ Our comprehensive training program will give you everything you need to successf
 
 # Page: Training
 
+## Cluster: Orientation & Objectives
+
 ## Component: Training Introduction
 
-This training will equip you to successfully position and sell SmartChat, Sentient.io's secure and customizable private AI solution. SmartChat leverages state-of-the-art machine learning algorithms and natural language processing to deliver highly contextual interactions. We will cover product knowledge, sales methodology, technical aspects, and resources necessary for you to effectively represent and sell SmartChat.
+Welcome to the SmartChat Reseller Training! This training will equip you to successfully position and sell SmartChat, Sentient.io's secure and customizable private AI solution. SmartChat leverages state-of-the-art machine learning algorithms and natural language processing to deliver highly contextual interactions. We will cover product knowledge, sales methodology, technical aspects, and resources necessary for you to effectively represent and sell SmartChat.
 
 ### Reinforcement Question
 **Q:** What is the primary goal of this SmartChat reseller training?
@@ -85,44 +136,24 @@ This training will equip you to successfully position and sell SmartChat, Sentie
 
 ## Component: Welcome & Objectives
 
-Welcome to the SmartChat Reseller Training! This section will introduce you to the goals and structure of the training. You'll discover what you'll learn, why it matters, and how you can use this knowledge to succeed as a SmartChat sales representative.
+This section will introduce you to the goals and structure of the training. You'll discover what you'll learn, why it matters, and how you can use this knowledge to succeed as a SmartChat sales representative.
 
 **What to Expect:**
 - Clear objectives to guide your learning
 - Interactive checklist to track your progress
+- Master objection handling and competitive positioning.
 - A short quiz to help you check your understanding (Note: Quiz functionality not implemented yet)
-
-<checklist title="Training Objectives">
-<item>Understand the value proposition of SmartChat</item>
-<item>Identify key product features and benefits</item>
-<item>Recognize the training structure and available resources</item>
-<item>Be prepared to articulate SmartChat's advantages to potential clients</item>
-</checklist>
-
-<quiz title="Welcome & Objectives Quiz">
-<question text="What is the main goal of this training?">
-<answer correct="true">To help you effectively position and sell SmartChat</answer>
-<answer>To teach programming skills</answer>
-<answer>To provide customer support</answer>
-</question>
-
-<question text="Which of the following is a training objective?">
-<answer correct="true">Understand the value proposition of SmartChat</answer>
-<answer>Learn how to use social media</answer>
-<answer>Set up a database server</answer>
-</question>
-</quiz>
-
-Ready to begin? Use the checklist above to track your objectives, and test your understanding with the quiz. Let's get started!
 
 ### Reinforcement Question
 **Q:** What is one key objective mentioned for this training?
-+**Choices:**
-+* A) Develop advanced coding skills.
-+* B) Master objection handling and competitive positioning.
-+* C) Learn graphic design principles.
-+* D) Understand blockchain technology.
-+**Correct:** B
+**Choices:**
+* A) Clear objectives to guide your learning.
+* B) Interactive checklist to track your progress.
+* C) Master objection handling and competitive positioning.
+* D) A short quiz to help you check your understanding.
+**Correct:** C
+
+## Cluster: Product Differentiators & Technology
 
 ## Component: Key Differentiators Overview
 
@@ -135,13 +166,13 @@ SmartChat sets itself apart with several key differentiators:
 *   **Enhanced Collaboration:** Improves knowledge sharing and decision-making across the enterprise.
 
 ### Reinforcement Question
-**Q:** According to the overview, what is a core strength of SmartChat mentioned?
-+**Choices:**
-+* A) It's the cheapest option available.
-+* B) It offers the most AI models.
-+* C) Its focus on private AI and data control.
-+* D) It integrates only with Microsoft products.
-+**Correct:** C
+**Q:** Which of the following is a key differentiator of SmartChat compared to other enterprise AI solutions?
+**Choices:**
+* A) It only works with public data sources.
+* B) It provides advanced features like deep workflow integration, customizable workflows, and robust analytics.
+* C) It is designed exclusively for small businesses.
+* D) It does not support on-premise deployment.
+**Correct:** B
 
 ## Component: Private AI RAG System
 
@@ -203,6 +234,8 @@ SmartChat sets itself apart with several key differentiators:
 +* D) It requires less server hardware.
 +**Correct:** C
 
+## Cluster: Customer & Market Focus
+
 ## Component: Ideal Customer Profile (ICP)
 
   * Ideal customers for SmartChat are knowledge-intensive, mid-size to large enterprises (500+ employees). These are organizations that rely heavily on document-based knowledge and information retrieval.
@@ -217,6 +250,29 @@ SmartChat sets itself apart with several key differentiators:
 +* C) Knowledge-intensive, mid-to-large enterprises needing secure access to internal documents.
 +* D) Individual consumers.
 +**Correct:** C
+
+## Component: The Future of Domain Knowledge: Proprietary and Specialized Context
+
+- Most domain knowledge published online quickly becomes commoditized, as AI models can crawl and learn from it.
+- In the future, the only domain knowledge truly out of reach for AI will be:
+  1. **Proprietary Knowledge:**  
+     Useful information that is not crawlable or publicly available—such as confidential company documents, internal processes, or data locked in private formats.  
+     Example: The full details of thousands of health insurance plans, only available in internal PDFs or paper documents.
+  2. **Interpretative (Specialized Contextual) Knowledge:**  
+     New insights generated by connecting information from multiple domains, requiring expertise and contextual understanding.  
+     Example: Estimating the cost for a patient using a specific insurance plan at a particular hospital for a given procedure—requiring both legal and healthcare expertise.
+  3. **Creative Knowledge:**  
+     Novel ideas and solutions generated through human creativity.
+  4. **SmartChat:** is designed to help organizations manage and leverage their proprietary and interpretative knowledge, ensuring that their most valuable, uncrawlable expertise remains a source of competitive advantage.
+
+### Reinforcement Question
+**Q:** Which type of knowledge is most likely to remain out of reach for AI models trained on Internet data?
++**Choices:**
++* A) Publicly available Wikipedia articles
++* B) Proprietary internal documents and interpretative insights
++* C) News headlines
++* D) Social media posts
++**Correct:** B
 
 ## Component: Target Industries and Use Cases
 
@@ -251,7 +307,9 @@ SmartChat sets itself apart with several key differentiators:
 +* D) By automatically generating marketing emails.
 +**Correct:** B
 
-## Competitive Positioning
+## Cluster: Competitive and Sales Positioning
+
+## Component: Competitive Positioning
 
 Understanding how SmartChat compares to other AI solutions is key to highlighting its unique value.
 
@@ -263,29 +321,12 @@ Understanding how SmartChat compares to other AI solutions is key to highlightin
   * Understand the concept of a Private AI RAG System, where SmartChat accesses your organization's private documents to provide accurate and trustworthy responses. This differs significantly from general LLMs that primarily rely on vast public internet data.
   * Be able to explain the basics of how SmartChat understands and responds to queries by ingesting and indexing your company's internal documents. It then uses its AI capabilities to understand the context and surface the most relevant information.
 
-### Reinforcement Question
-**Q:** What does "Private AI RAG System" mean in the context of SmartChat?
-+**Choices:**
-+* A) A system that only uses publicly available AI models.
-+* B) A system that retrieves information only from private organizational documents to generate answers.
-+* C) A system designed for personal, non-business use.
-+* D) A system that randomly generates answers.
-+**Correct:** B
-
 ### SmartChat vs. General LLMs
 
   * SmartChat prioritizes data privacy and security by operating within your company's private space, either on your servers or a private cloud. This is unlike general LLMs that typically operate in the public cloud.
   * It's specifically designed for secure integration with your internal knowledge base, becoming an expert on your business, procedures, and products. General LLMs primarily rely on vast public internet data and lack this focused, secure mechanism.
   * SmartChat offers deep customization and on-premise deployment options, allowing it to be tailored to your industry's specific jargon and unique processes. General LLMs often require significant extra development work to achieve similar levels of integration.
 
-### Reinforcement Question
-**Q:** What is a key advantage of SmartChat over general LLMs like ChatGPT regarding data privacy?
-+**Choices:**
-+* A) SmartChat is faster.
-+* B) SmartChat can operate entirely within a company's private space (on-premise/private cloud).
-+* C) SmartChat has a nicer user interface.
-+* D) SmartChat uses more AI models.
-+**Correct:** B
 
 ### SmartChat vs. Microsoft Co-pilot
 
@@ -302,15 +343,12 @@ Understanding how SmartChat compares to other AI solutions is key to highlightin
 +* D) SmartChat does not support multiple languages.
 +**Correct:** B
 
-## Sales Process
+## Component: Sales Process
 
-A structured sales process helps effectively engage prospects and demonstrate SmartChat's value.
+A structured sales process helps effectively engage prospects and demonstrate SmartChat's value. Ensure that your sales process includes the following key points given below:
 
-*(No reinforcement question for this section)*
+## Component: Key points in Sales Process
 
-### Sales Process Overview
-
-  * Follow Sentient.io's recommended sales process which should be tailored for selling AI solutions that address complex enterprise needs. This process should guide you step-by-step from initial contact to closing the deal.
   * Focus on effective lead qualification to identify ideal prospects who are knowledge-intensive and have a need for secure AI and control over their data. Look for companies that are actively seeking innovative solutions to leverage their existing data and improve knowledge management.
   * Utilize consultative selling techniques to understand the prospect's specific business challenges related to knowledge management and information retrieval. Ask probing questions to uncover their unique needs and pain points that SmartChat can address.
 
@@ -323,7 +361,7 @@ A structured sales process helps effectively engage prospects and demonstrate Sm
 +* D) Offer a free trial without understanding their needs.
 +**Correct:** C
 
-### Lead Qualification
+## Component: Lead Qualification
 
   * Identify prospects with a need for secure AI and control over their data, especially those in highly regulated industries. These organizations often have stringent data protection requirements and may have data sovereignty concerns.
   * Look for companies struggling with knowledge access and employee productivity, where employees waste time searching for relevant information. Determine if they are facing challenges in knowledge accessibility, information overload, and inefficient customer service.
@@ -338,7 +376,7 @@ A structured sales process helps effectively engage prospects and demonstrate Sm
 +* D) The CEO's golf handicap.
 +**Correct:** B
 
-### Consultative & Value-Based Selling
+## Component: Consultative & Value-Based Selling
 
   * Focus on understanding the prospect's specific business challenges related to knowledge management, customer service, and employee productivity. Ask questions to identify their pain points, such as wasted time searching for information or inefficient customer service due to slow access to accurate data.
   * Build trust and rapport by demonstrating your expertise in AI solutions and your understanding of their industry-specific challenges. Highlight how SmartChat's unique features, like its private AI RAG system and on-premise deployment, can address their specific needs.
@@ -356,7 +394,7 @@ A structured sales process helps effectively engage prospects and demonstrate Sm
 +* D) To determine which features *not* to talk about.
 +**Correct:** C
 
-### Handling Objections
+## Component: Handling Objections
 
   * Be prepared to address common objections, such as concerns about cost, implementation complexity, or integration with existing systems. Have clear responses that highlight SmartChat's ROI, ease of use, and flexibility.
   * Practice handling objections related to data security and privacy by emphasizing SmartChat's private AI architecture and deployment options. Clearly articulate how SmartChat ensures data control and meets compliance standards.
@@ -370,7 +408,9 @@ A structured sales process helps effectively engage prospects and demonstrate Sm
 +* D) Objection: Takes too long to implement. Address: Offer a discount.
 +**Correct:** B
 
-### Proof of Concept (POC) & Pilot Programs
+## Cluster: Sales Execution & Closing
+
+## Component: Proof of Concept (POC) & Pilot Programs
 
   * Offer tailored Proof of Concept (POC) engagements to demonstrate SmartChat's capabilities using the prospect's own data in a controlled environment. This allows them to see the value firsthand.
   * Clearly define the scope, success criteria, and timeline for any POC or pilot program to manage expectations and ensure a focused evaluation. Agree on measurable outcomes to demonstrate value.
@@ -384,7 +424,7 @@ A structured sales process helps effectively engage prospects and demonstrate Sm
 +* D) To test the prospect's IT team.
 +**Correct:** C
 
-### Closing & Post-Sale
+## Component: Closing & Post-Sale
 
   * Guide the prospect through the final decision-making process by summarizing the value proposition and addressing any remaining concerns. Ensure all stakeholders are aligned.
   * Maintain regular communication post-sale to ensure customer satisfaction, identify upsell opportunities, and gather valuable feedback for product improvement. Build a long-term partnership.
@@ -398,76 +438,179 @@ A structured sales process helps effectively engage prospects and demonstrate Sm
 +* D) Ask for payment upfront for the next five years.
 +**Correct:** C
 
-### Technical Overview
+## Component: Pricing
 
-  * Understand that SmartChat can be deployed in various architectures including on-premise, where it's installed within the client's infrastructure, and private cloud, offering a dedicated instance in a cloud environment. A hybrid approach, combining both, is also possible for flexible data sovereignty.
-  * Note the possibility of connecting SmartChat to platforms like WhatsApp via API, enhancing its multi-channel integration capabilities. This allows for direct engagement with customers on popular messaging platforms.
+Understanding the pricing models and reseller opportunities is key to structuring deals.
+
+**Pricing Models:**
+- SmartChat Enterprise: Priced per user per month with unlimited conversations (limited named user accounts). Designed for internal enterprise use.
+- SmartChat Standard: Priced per block of 5,000 conversations/month with unlimited users. Suited for external-facing use (e.g., customer support).
+- Different structures for Sentient Cloud (SaaS), Reseller Cloud, and On-Premise, each with implications for resellers. Resellers can set their own selling prices and margins.
+
+**Reseller Opportunities:**
+- Resellers can tailor offerings for named user licenses (Enterprise) or per-conversation needs (Standard), addressing a range of client requirements and budgets.
+- Offering both Enterprise and Standard allows addressing both internal and external use cases within a client organization, increasing revenue potential.
+- Resellers determine their own selling price and keep the difference as margin across models and deployment options.
+
+### Reinforcement Question
+**Q:** What is a key advantage for resellers when offering both SmartChat Enterprise and Standard pricing models?
+**Choices:**
+* A) They can only sell to one type of client.
+* B) They must use fixed prices set by Sentient.io.
+* C) They can address a wider range of client needs and set their own margins.
+* D) They cannot offer on-premise deployments.
+**Correct:** C
+
+## Cluster: Technical & Enablement Resources
+
+## Component: Technical Details
+
+A foundational understanding of SmartChat's technical aspects is important for reseller confidence.
+
+**Technical Overview:**
+- SmartChat can be deployed on-premise (client infrastructure), private cloud (dedicated instance), or as a hybrid for flexible data sovereignty.
+- Separate document indexes are maintained for Enterprise and Standard, ensuring each audience segment uses its own knowledge base. Concurrent use requires separate SmartChat instances.
+- Integration with platforms like WhatsApp via API enhances multi-channel capabilities.
+
+**On-Premise Deployment:**
+- Offers maximum data control and security, with all data remaining within the client's infrastructure—important for security/compliance.
+- Sentient charges $10,000 per site installation for on-premise, but this is waived if the reseller installs it themselves.
+- Sentient offers a $2,000 one-day training for two people to equip resellers for on-premise installation/setup.
+
+### Reinforcement Question
+**Q:** What is a benefit of SmartChat's on-premise deployment option for clients?
+**Choices:**
+* A) All data is stored in the public cloud.
+* B) It reduces the need for any technical expertise.
+* C) It provides maximum data control and security within the client's own infrastructure.
+* D) It eliminates the need for compliance with regulations.
+**Correct:** C
+
+## Component: Enablement & Support
+
+Sentient.io provides tools, resources, and ongoing support for reseller success.
+
+**Sales Enablement Tools & Marketing Content:**
+- Sales Enablement Platform: Centralized hub for product brochures, case studies, training guides.
+- CRM system: Manage leads, track progress, access customer information.
+- Marketing materials: Brochures, website content, white papers to support sales.
+- ROI calculators and case studies to demonstrate value.
+
+**Technical Support & Resources:**
+- Designated email addresses for product and sales inquiries.
+- Technical documentation and FAQs available in the knowledge base.
+- Escalation process for complex technical issues.
+
+**Continuous Learning & Post-Training Support:**
+- Ongoing training, knowledge bases, follow-up sessions, and online courses.
+- Regular updates on product features, best practices, and market trends.
+- Feedback mechanisms to inform future strategies and improvements.
+
+### Reinforcement Question
+**Q:** Which resource is available to resellers for ongoing support and product knowledge development?
+**Choices:**
+* A) Only printed brochures
+* B) The Sales Enablement Platform, CRM system, and regular training sessions
+* C) Social media advertisements only
+* D) None of the above
+**Correct:** B
+
+## Component: Deployment Options
+
+- SmartChat offers On-premise (client infrastructure), Private Cloud (dedicated instance), and Hybrid deployment options. Integration with platforms like WhatsApp is possible via API.
+- Understand the basics of the architecture and integration capabilities.
 
 ### Reinforcement Question
 **Q:** Name one deployment architecture option available for SmartChat besides on-premise.
-+**Choices:**
-+* A) Public Cloud (Shared Tenant)
-+* B) Desktop Application
-+* C) Private Cloud or Hybrid
-+* D) Mobile App Only
-+**Correct:** C
+**Choices:**
+* A) Public Cloud
+* B) Hybrid Cloud
+* C) Private Cloud or Hybrid
+* D) Community Cloud
+**Correct:** C
 
-### Security & Compliance
+## Component: Security Features
 
-  * Emphasize SmartChat's commitment to security through features like role-based access control, data encryption (in transit and at rest), and audit logs. Highlight adherence to industry standards.
-  * Explain how on-premise deployment inherently enhances security by keeping all data and processing within the client's own controlled environment. This is crucial for organizations with strict data residency or regulatory needs.
+- Security features include role-based access control, data encryption (in transit/rest), and audit logs.
+- On-premise deployment enhances security and meets compliance/data residency needs.
+- Adherence to relevant industry standards should be mentioned if applicable.
 
 ### Reinforcement Question
 **Q:** Mention one security feature or compliance aspect that is important to highlight when discussing SmartChat.
-+**Choices:**
-+* A) It allows anonymous access by default.
-+* B) Features like Role-Based Access Control, encryption, audit logs, and on-premise options enhance security.
-+* C) All data is automatically shared with third-party partners.
-+* D) Security is handled entirely by the customer.
-+**Correct:** B
+**Choices:**
+* A) On-premise deployment option
+* B) Role-based access control
+* C) Any one of: On-premise deployment option, Role-based access control, Data encryption, Audit logs, Separate indexing, Adherence to industry standards (if applicable)
+* D) None of the above
+**Correct:** B
 
-### Integration & Customization
+## Component: Integration Capabilities
 
-  * Discuss SmartChat's ability to integrate with existing enterprise systems like SharePoint, Confluence, and various CRMs through APIs or available connectors. This ensures seamless workflow integration.
-  * Explain how SmartChat's workflows and responses can be customized to align with specific industry terminology, company branding, and operational processes. This ensures relevance and user adoption.
+- SmartChat integrates with systems like SharePoint, Confluence, CRMs via APIs/connectors.
+- Workflows and responses can be customized for industry terms, branding, and processes.
 
 ### Reinforcement Question
 **Q:** Can SmartChat be integrated with platforms like WhatsApp?
-+**Choices:**
-+* A) No, SmartChat only integrates with email.
-+* B) Yes, integration with external platforms like WhatsApp is possible via API.
-+* C) Only if the customer pays a large extra fee.
-+* D) No, SmartChat is a completely standalone system.
-+**Correct:** B
+**Choices:**
+* A) No
+* B) Yes, but only through a third-party service
+* C) Yes, integration with platforms like WhatsApp is possible via API
+* D) Only through a custom development
+**Correct:** C
 
-### Support & Maintenance
+## Cluster: Support, Learning & Completion
 
-  * Outline the available support packages, including standard support hours, response times, and access to knowledge base resources. Ensure prospects understand the level of support they will receive.
-  * Explain the process for software updates and maintenance, including how new features and security patches are delivered, especially for on-premise deployments. Transparency is key.
+## Component: Customer Support
+
+- Support packages include defined hours, response times, and knowledge base access.
+- Process for software updates and maintenance, including delivery of new features/patches (especially for on-premise).
 
 ### Reinforcement Question
 **Q:** What kind of support can customers expect after purchasing SmartChat?
-+**Choices:**
-+* A) No support is provided after purchase.
-+* B) Only email support during business hours.
-+* C) Defined support packages, knowledge base access, software updates, and maintenance.
-+* D) Support is only available for the first month.
-+**Correct:** C
+**Choices:**
+* A) Only email support
+* B) Only phone support
+* C) Access to support packages (defined hours/response times), knowledge base, software updates, and maintenance (including new features/patches)
+* D) No support is provided
+**Correct:** C
 
-### Continuous Learning & Post-Training Support
+## Component: Continuous Learning
 
-  * AI technology is rapidly evolving, with new algorithms, features, and practical applications emerging regularly, making continuous learning crucial for staying informed. Sales teams need to be proactively informed and thoroughly trained on these developments.
-  * Utilize available ongoing training, knowledge bases, and follow-up sessions to deepen your understanding and enhance your sales effectiveness. Encouraging self-directed learning by providing access to online courses and articles is also important.
+- AI evolves rapidly; continuous learning is vital. Stay updated on new features, algorithms, use cases, and the competitive landscape.
+- Utilize ongoing training, knowledge bases, and follow-up sessions. Engage in self-directed learning.
 
 ### Reinforcement Question
 **Q:** Why is continuous learning important when selling AI technology like SmartChat?
-+**Choices:**
-+* A) It's not important; the technology never changes.
-+* B) To impress colleagues with technical jargon.
-+* C) Because the AI field evolves rapidly, staying updated is crucial for effective selling.
-+* D) To pass mandatory annual exams.
-+**Correct:** C
+**Choices:**
+* A) To learn about unrelated topics
+* B) To stay updated on industry trends
+* C) AI evolves rapidly; continuous learning is crucial to stay updated on new features, algorithms, use cases, and competitive landscape to remain effective in sales.
+* D) To reduce the need for training
+**Correct:** C
 
-## Training Completion & Next Steps
+## Component: Conclusion
+
+Summarizing key aspects and outlining next steps for resellers.
+
+**Key Takeaways:**
+- SmartChat offers unique value with private AI, on-premise deployment, and separate indexing—addressing security, compliance, and control.
+- Value-based selling: Connect features (private RAG, multi-model support) to business benefits (efficiency, security, ROI).
+- Continuous learning and resource utilization are essential for success in AI sales.
+
+**Next Steps:**
+- Review all materials (teaching decks, handouts, sales playbooks, Sales Enablement Platform, CRM).
+- Schedule a follow-up with Sentient.io for questions and sales strategy.
+- Stay engaged for ongoing support and updates.
+
+### Reinforcement Question
+**Q:** What is one recommended next step for resellers after completing the SmartChat training?
+**Choices:**
+* A) Ignore all provided materials
+* B) Schedule a follow-up with Sentient.io and review all training resources
+* C) Immediately start selling without preparation
+* D) Focus only on product features, not customer needs
+**Correct:** B
+
+## Component: Training Completion & Next Steps
 
 Congratulations on completing the SmartChat Reseller Training! You are now equipped with the foundational knowledge to effectively represent and sell our cutting-edge private AI solution. Continue to leverage the resources provided and engage in continuous learning to stay ahead in the dynamic AI market. Good luck!
