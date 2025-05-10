@@ -83,6 +83,8 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
+| V1.0.2g                    | <pending>   | Closed off on V1.0.2f                                           |
+| V1.0.2f                    | ec791a6   | Built interactive training section                               |
 | V1.0.2e                    | e4fefad   | Reviewed training content                                        |
 | V1.0.2d                    | 041ff28   | Checked training content                                         |
 | V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                              |
@@ -119,6 +121,14 @@ The next version to be implemented is **V1.0.3**.
 *This section should be auto-incremented as features are moved from backlog to planning/implementation. As versions are incremented, ensure the Audit Trail section is also updated with relevant information about the changes or features added in each version.*
 
 ## Audit Trail
+
+### May 10, 2025
+- **Project Audit & Feature Documentation (V1.0.2f):**
+  - Conducted a comprehensive review of the project structure, directory contents, and key files (`README.md`, `content.md`, `templates/index.html`).
+  - Verified the presence and purpose of the `node_modules` directory, confirming its use for front-end tooling (e.g., Tailwind CSS, JavaScript bundling).
+  - Documented all interactive training features: collapsible sections, progress tracking, reinforcement questions, and dynamic markdown-driven content rendering.
+  - Summarized the integration of Flask backend, markdown content pipeline, and rich front-end interactivity.
+  - Updated completed features log and ensured all findings are reflected in project documentation.
 
 ### May 5, 2025
 - **Checked training content (V1.0.2d):**
