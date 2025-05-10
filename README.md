@@ -83,6 +83,7 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
+| V1.0.2e                    | e4fefad   | Reviewed training content                                        |
 | V1.0.2d                    | 041ff28   | Checked training content                                         |
 | V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                              |
 | V1.0.2b                    | a011ad5   | Tidied up V1.0.2 directory structure                             |

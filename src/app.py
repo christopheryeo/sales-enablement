@@ -10,7 +10,7 @@ import json # For handling JSON data
 # Load environment variables from .env file
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # --- Configuration ---
 # Secret key for session management.
