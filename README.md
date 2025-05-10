@@ -83,7 +83,8 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
-| V1.0.2g                    | <pending>   | Closed off on V1.0.2f                                           |
+| V1.0.2h                    | e117a26   | Fixed Vercel Deployment                                         |
+| V1.0.2g                    | 73c52a8   | Closed off on V1.0.2f                                           |
 | V1.0.2f                    | ec791a6   | Built interactive training section                               |
 | V1.0.2e                    | e4fefad   | Reviewed training content                                        |
 | V1.0.2d                    | 041ff28   | Checked training content                                         |
