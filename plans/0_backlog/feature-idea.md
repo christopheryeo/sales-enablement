@@ -8,8 +8,22 @@ Add your raw feature ideas here before they are ready for planning. Use this doc
 
 These features have been fully implemented and moved to the completed section of the project:
 
-- **Use cookies to track user sessions** (V1.0.2)
-  - Status: Completed. Provides persistent, secure session tracking using backend-generated UUID cookies. See: `plans/3_completed/V1.0.2/` for documentation and summary.
+- **Persistent user session cookies** (V1.0.2)
+  - Provides secure, persistent session tracking using backend-generated UUID cookies.
+- **Interactive training section (collapsible, checklist, progress bar)** (V1.0.2f)
+  - Training content is fully interactive, with collapsible sections, visited-section checkboxes, and a progress bar.
+- **Reinforcement questions with show/hide answers** (V1.0.2f)
+  - Each training section includes reinforcement questions with interactive answer reveal and feedback.
+- **Markdown-driven content pipeline**
+  - Training and About sections are dynamically populated from markdown (`content.md`) using custom parsing.
+- **Admin page for user progress and database management** (V1.0.1)
+  - Admin dashboard for tracking user progress, clearing records, and viewing statistics.
+- **Vercel deployment configuration and fixes** (V1.0.2h)
+  - Ensured Flask app is properly deployed as a Python serverless function on Vercel, resolving 404 errors.
+- **Simplified progress tracking with cookies** (V1.0.3)
+  - Implemented a counter-based progress tracking system that resets on each training session and increments as users view sections and complete quizzes.
+- **Project documentation improvements**
+  - README, audit trail, and completed features log are kept up to date with every major release and fix.
 
 ---
 
@@ -17,21 +31,13 @@ These features have been fully implemented and moved to the completed section of
 
 These features are still in the idea stage and have not yet been planned or implemented:
 
-- **Use cookies to track user section completion** (V1.0.3)
-  - Store section completion status in cookies so users can resume training where they left off and visualize their progress even if not logged in.
-
-- **Use cookies to track user quiz completion** (V1.0.4)
-  - Record quiz completion and scores in cookies to provide feedback, unlock achievements, or recommend further training based on quiz performance.
+- **Use cookies to track exact section and quiz completion** (V1.0.4)
+  - Store in cookies the exact sections the user has read and the exact quizzes completed, including their answers.
+  - When the user enters the training page, the app will read the cookie and automatically tick checkboxes for all sections they have read and restore answers for all quizzes they have previously attempted.
+  - This enables persistent, granular progress tracking for both sections and quizzes, supporting richer feedback and future features.
 
 - **Display app version in menu bar** (V1.0.5)
   - Show the current application version in small font somewhere in the menu bar for quick reference and improved transparency for users and developers.
 
 ---
 
-## Moved to Planning/Implementation
-
-These features are currently being planned or implemented:
-
-- **Build Interactive Training Page** (V1.0.2f)
-  - Status: In Planning/Implementation. Will display content from content.md (processed at build-time), with collapsible sections and interactive reinforcement questions.
-  - See: `plans/2_inprogress/V1.0.2f/` for planning, design, and specification documents.

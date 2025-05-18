@@ -83,13 +83,14 @@ python tests/list_records.py
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
-| V1.0.2h                    | e117a26   | Fixed Vercel Deployment                                         |
-| V1.0.2g                    | 73c52a8   | Closed off on V1.0.2f                                           |
+| V1.0.3                     | [COMMIT]  | Simplified Progress Tracking with Cookies                        |
+| 83df59c                    | 83df59c   | Update Git Versions and Tags table for V1.0.2g and V1.0.2h      |
+| V1.0.2h                    | e117a26   | Fixed Vercel Deployment                                          |
+| V1.0.2g                    | 73c52a8   | Closed off on V1.0.2f                                            |
 | V1.0.2f                    | ec791a6   | Built interactive training section                               |
 | V1.0.2e                    | e4fefad   | Reviewed training content                                        |
 | V1.0.2d                    | 041ff28   | Checked training content                                         |
 | V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                              |
-| V1.0.2b                    | a011ad5   | Tidied up V1.0.2 directory structure                             |
 | V1.0.2                     | 02c3bab   | V1.0.2: User Cookies Persistent session with UUID cookies        |
 | planning-docs-created      | bdf11c2   | Created planning documents for this project                      |
 | V1.0.1                     | b81eb11   | Added an admin page to manage database                           |
@@ -117,11 +118,29 @@ python tests/list_records.py
 
 ## Next version to be implemented
 
-The next version to be implemented is **V1.0.3**.
+The next version to be implemented is **V1.0.4**.
 
 *This section should be auto-incremented as features are moved from backlog to planning/implementation. As versions are incremented, ensure the Audit Trail section is also updated with relevant information about the changes or features added in each version.*
 
 ## Audit Trail
+
+### May 15, 2025
+- **Simplified Progress Tracking with Cookies (V1.0.3):**
+  - Redesigned the progress tracking system to use a simpler, more reliable counter-based approach.
+  - Implemented reset of progress counters on each training page load for consistent user experience.
+  - Created functions to increment section and quiz counters when users interact with content.
+  - Updated cookie storage to use simple numeric values instead of complex data structures.
+  - Ensured proper synchronization between client-side tracking and server-side database.
+  - Improved visual feedback for users as they progress through training materials.
+  - Fixed issues with section count not updating correctly in previous implementation.
+
+### May 15, 2025
+- **V1.0.3: Simplified Progress Tracking with Cookies**
+  - Implemented a counter-based progress tracking system using cookies for training sections and quizzes, replacing the previous section-ID approach.
+  - Counters reset on each training session for a consistent user experience.
+  - Updated cookie storage to use simple numeric values (`smartchat_sections_viewed`, `smartchat_quizzes_completed`) for reliability and easier management.
+  - Improved visual feedback for users and fixed prior issues with progress not updating correctly.
+  - Simplified logic led to a more robust, consistent, and user-friendly tracking experience.
 
 ### May 10, 2025
 - **Project Audit & Feature Documentation (V1.0.2f):**

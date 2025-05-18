@@ -46,39 +46,47 @@
       if(target === 'home') window.location.hash="";
       else window.location.hash = target;
       window.scrollTo(0,0);
-      
+
       // Track page navigation
       if (target === 'training') {
         trackProgress('section');
       }
     }
+    // Declare viewedSectionsSet at global scope so it can be accessed by all functions
+    let viewedSectionsSet = new Set();
+
     // Function to track user progress
-    function trackProgress(type) {
+    function trackProgress(type, sectionId = null) {
       console.log(`Attempting to track progress: ${type}`);
-      
+
       // Check if user is registered
       const isRegistered = document.body.classList.contains('user-registered');
       console.log(`User registered: ${isRegistered}`);
-      
+
       // Only track progress if user is registered
       if (!isRegistered) {
         console.log('Not tracking progress because user is not registered');
         return;
       }
-      
+
       // Add a timestamp to avoid caching issues
       const timestamp = new Date().getTime();
-      
-      console.log(`Sending tracking request: ${type} at ${timestamp}`);
-      
+
+      // For V1.0.3 (Revised): Get the count from our global counter
+      const count = (type === 'section') ? sectionsViewed : quizzesCompleted;
+
+      console.log(`Sending tracking request: ${type} at ${timestamp}, count: ${count}`);
+
       fetch('/track_progress', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           type: type,
-          timestamp: timestamp 
+          timestamp: timestamp,
+          section_id: sectionId,
+          count: count
         })
       })
       .then(response => {
@@ -90,34 +98,19 @@
       })
       .then(data => {
         console.log('Progress tracked successfully:', data);
-        // Update progress meters
-        if (data.status === 'success') {
-          const progressMeter = document.getElementById('progress-meter');
-          const scoreMeter = document.getElementById('score-meter');
-          
-          if (progressMeter) {
-            progressMeter.textContent = `Progress: ${data.sections_completed} sections viewed`;
-          } else {
-            console.error('Progress meter element not found');
-          }
-          
-          if (scoreMeter) {
-            scoreMeter.textContent = `Score: ${data.quizzes_completed} quizzes completed`;
-          } else {
-            console.error('Score meter element not found');
-          }
-        }
+        // We don't need to update the UI here since it's already updated by incrementSectionCount/incrementQuizCount
+        console.log(`Server acknowledged ${type} progress: ${count}`);
       })
       .catch(error => {
         console.error('Error tracking progress:', error);
       });
     }
-    
+
     // Function to track quiz completion
-    function trackQuizCompletion() {
-      trackProgress('quiz');
+    function trackQuizCompletion(quizId = null) {
+      trackProgress('quiz', quizId);
     }
-    
+
     window.onload = function() {
       // Check for session cookie (basic check)
       if (!document.cookie || document.cookie.indexOf('session=') === -1) {
@@ -126,12 +119,12 @@
       let h = window.location.hash.replace('#','');
       if(h && document.getElementById(h+'-section')) switchPage(h);
       else switchPage('home');
-      
+
       // Add user-registered class if user is registered
       {% if session.get('registered') %}
       document.body.classList.add('user-registered');
       {% endif %}
-      
+
       // Set up event listeners for quiz answers
       setupQuizTracking();
     }
@@ -139,27 +132,29 @@
       let h = window.location.hash.replace('#','');
       if(h && document.getElementById(h+'-section')) switchPage(h);
     }
-    
+
     // Set up event listeners for quiz answers
     function setupQuizTracking() {
       console.log('Setting up tracking event listeners');
-      
+
       // Count the elements we're attaching listeners to
       const quizButtons = document.querySelectorAll('.quiz-answer');
       const sectionHeaders = document.querySelectorAll('.collapsible');
-      
+
       console.log(`Found ${quizButtons.length} quiz buttons and ${sectionHeaders.length} section headers`);
-      
+
       // Find all quiz answer buttons
       quizButtons.forEach((button, index) => {
         console.log(`Adding listener to quiz button ${index}`);
         button.addEventListener('click', function() {
           console.log(`Quiz button ${index} clicked`);
+          // Get the quiz ID from the name attribute (e.g., "q1", "q2", etc.)
+          const quizId = button.name;
           // Track quiz completion when user clicks an answer
-          trackQuizCompletion();
+          trackQuizCompletion(quizId);
         });
       });
-      
+
       // Find all collapsible section headers (for tracking section views)
       sectionHeaders.forEach((header, index) => {
         console.log(`Adding listener to section header ${index}`);
@@ -174,7 +169,7 @@
           }
         });
       });
-      
+
 
     }
   </script>
@@ -190,9 +185,10 @@
         <img src="https://sentient.io/img/logo1.png" alt="Sentient.io logo" style="height:40px;" class="mr-3">
         <div>
           <h1 class="text-xl font-bold text-emerald-700">SmartChat Reseller Training</h1>
-          <div class="mt-1">
+          <div class="mt-1 flex items-center">
             <span id="progress-meter" class="text-xs text-gray-600">Progress: 0 / 27 sections viewed</span>
             <span id="score-meter" class="ml-2 text-xs text-gray-600">Score: 0 / 0</span>
+            <button id="reset-progress-btn" class="ml-3 px-2 py-0.5 text-xs bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Reset Progress</button>
           </div>
         </div>
       </div>
@@ -325,7 +321,7 @@
     <li><label class="inline-flex items-center"><input type="radio" name="q1" value="D" class="mr-2">D) To get certified in cloud computing.</label></li>
   </ul>
   <div class="feedback-message mt-2 text-sm font-bold"></div>
-  
+
 </div>
           </div>
         </div>
@@ -1111,27 +1107,156 @@
   </section>
 </main>
 
-  <!-- Add JS for Collapsible Sections and Questions (Assuming it exists below) -->
+  <!-- Add JS for Collapsible Sections and Questions -->
   <script>
+    // Cookie utility functions for V1.0.3 (Revised) - Simplified progress tracking
+    const SECTION_COUNT_COOKIE = 'smartchat_sections_viewed';
+    const QUIZ_COUNT_COOKIE = 'smartchat_quizzes_completed';
+
+    // Global counters
+    let sectionsViewed = 0;
+    let quizzesCompleted = 0;
+    let totalSections = 0;
+    let totalQuizzes = 0;
+
+    // Function to set a cookie with expiration
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = "; expires=" + date.toUTCString();
+      document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/; SameSite=Lax";
+      console.log(`Cookie set: ${name} = ${value}`);
+    }
+
+    // Function to get a cookie by name
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) {
+          const cookieValue = decodeURIComponent(c.substring(nameEQ.length, c.length));
+          console.log(`Cookie retrieved: ${name} = ${cookieValue}`);
+          return cookieValue;
+        }
+      }
+      console.log(`Cookie not found: ${name}`);
+      return null;
+    }
+
+    // Function to delete a cookie
+    function deleteCookie(name) {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; SameSite=Lax';
+      console.log(`Cookie deleted: ${name}`);
+    }
+
+    // Function to increment section count
+    function incrementSectionCount() {
+      sectionsViewed++;
+      console.log(`Section count incremented to: ${sectionsViewed}`);
+      setCookie(SECTION_COUNT_COOKIE, sectionsViewed.toString(), 365);
+      updateProgressUI();
+
+      // Send to server
+      trackProgress('section');
+    }
+
+    // Function to increment quiz count
+    function incrementQuizCount(quizId) {
+      quizzesCompleted++;
+      console.log(`Quiz count incremented to: ${quizzesCompleted}`);
+      setCookie(QUIZ_COUNT_COOKIE, quizzesCompleted.toString(), 365);
+      updateProgressUI();
+
+      // Send to server
+      trackQuizCompletion(quizId);
+    }
+
+    // Function to reset all progress
+    function resetProgress() {
+      sectionsViewed = 0;
+      quizzesCompleted = 0;
+
+      // Clear cookies
+      deleteCookie(SECTION_COUNT_COOKIE);
+      deleteCookie(QUIZ_COUNT_COOKIE);
+
+      // Reset UI
+      updateProgressUI();
+
+      // Reset checkboxes
+      document.querySelectorAll('.checkbox').forEach(checkbox => {
+        checkbox.textContent = '☐';
+      });
+
+      // Reset quiz feedback
+      document.querySelectorAll('.feedback-message').forEach(feedback => {
+        feedback.textContent = '';
+      });
+
+      // Uncheck all radio buttons
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.checked = false;
+      });
+
+      console.log('Progress reset successfully');
+      alert('Your progress has been reset.');
+    }
+
+    // Function to update progress UI
+    function updateProgressUI() {
+      const progressMeter = document.getElementById('progress-meter');
+      const scoreMeter = document.getElementById('score-meter');
+
+      if (progressMeter) {
+        progressMeter.textContent = `Progress: ${sectionsViewed} / ${totalSections} sections viewed`;
+      }
+
+      if (scoreMeter) {
+        scoreMeter.textContent = `Score: ${quizzesCompleted} / ${totalQuizzes} quizzes completed`;
+      }
+
+      console.log(`Progress UI updated: ${sectionsViewed}/${totalSections} sections, ${quizzesCompleted}/${totalQuizzes} quizzes`);
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       const scoreMeter = document.getElementById('score-meter');
       const progressMeter = document.getElementById('progress-meter');
       const collapsibleHeadings = document.querySelectorAll('.collapsible-heading');
-      const totalSections = collapsibleHeadings.length;
-      let viewedSections = 0;
-      const viewedSectionsSet = new Set(); // Track viewed sections to avoid double counting
+
+      // Set global counters
+      totalSections = collapsibleHeadings.length;
+      const allQuestionAreas = document.querySelectorAll('.question-area');
+      totalQuizzes = allQuestionAreas.length;
+
+      console.log(`Found ${totalSections} sections and ${totalQuizzes} quizzes`);
+
+      // Reset counters on page load (V1.0.3 Revised)
+      sectionsViewed = 0;
+      quizzesCompleted = 0;
+
+      // Initialize UI with zero progress
+      updateProgressUI();
 
       // --- Immediate Feedback for Reinforcement Questions ---
       document.querySelectorAll('.question-area').forEach(function(qArea) {
         const correct = qArea.getAttribute('data-correct');
         const radios = qArea.querySelectorAll('input[type="radio"]');
         const feedback = qArea.querySelector('.feedback-message');
+
+        // Get quiz ID from the first radio button's name (e.g., "q1", "q2", etc.)
+        const quizId = radios.length > 0 ? radios[0].name : null;
+
         radios.forEach(function(radio) {
           radio.addEventListener('change', function() {
             if (radio.value === correct) {
               feedback.textContent = 'Correct!';
               feedback.classList.remove('text-red-600');
               feedback.classList.add('text-green-600');
+
+              // Increment quiz count if answered correctly
+              incrementQuizCount(quizId);
             } else {
               feedback.textContent = 'Incorrect!';
               feedback.classList.remove('text-green-600');
@@ -1140,16 +1265,6 @@
           });
         });
       });
-
-      // --- Score Meter Initialization ---
-      const allQuestionAreas = document.querySelectorAll('.question-area[data-correct-answer]');
-      const totalQuestions = allQuestionAreas.length;
-      let correctAnswers = 0;
-      const answeredCorrectlySet = new Set(); // Track questions answered correctly
-      scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
-
-      // Initial progress update (optional, if you want to load progress from storage later)
-      // progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
 
       // Update progress when a section is expanded
       collapsibleHeadings.forEach(heading => {
@@ -1164,56 +1279,28 @@
           // Update indicator
           if (indicator) { indicator.textContent = isHidden ? '+' : '-'; }
 
-          // Update checkbox (Mark as viewed permanently)
-          if (!isHidden && checkbox) { // If opened (not hidden)
-            checkbox.textContent = '☑';
-          }
+          // If section is being expanded (not collapsed)
+          if (!isHidden) {
+            // Update checkbox to mark as viewed
+            if (checkbox) {
+              checkbox.textContent = '☑';
+            }
 
-          // Update section count for progress meter (only count first view)
-          const sectionId = heading.querySelector('span:nth-child(2)')?.textContent || 'unknown'; // Get section text as ID
-          if (!isHidden && !viewedSectionsSet.has(sectionId)) {
-            viewedSectionsSet.add(sectionId);
-            viewedSections = viewedSectionsSet.size;
-            updateProgressMeter(); // Update meter display
-            trackProgress('section'); // Track this unique section view
+            // Increment section count
+            incrementSectionCount();
           }
         });
       });
 
-      // Initial progress calculation on page load
-      updateProgressMeter(); // Use the renamed function
-
-      // --- Immediate Feedback on Radio Button Selection ---
-      document.querySelectorAll('.question-area').forEach(questionArea => {
-        const feedbackDiv = questionArea.querySelector('.feedback'); // Get feedback div once
-        const radioButtons = questionArea.querySelectorAll('input[type="radio"][name^="q"]');
-        const correctAnswer = questionArea.dataset.correctAnswer;
-
-        if (radioButtons.length > 0 && feedbackDiv) { // Ensure elements exist
-          const questionIdentifier = radioButtons[0].name; // Use radio group name as unique ID
-
-          radioButtons.forEach(radio => {
-            radio.addEventListener('change', () => {
-              if (radio.checked) { // When a radio button is selected
-                if (radio.value === correctAnswer) {
-                  // Only increment score if this question hasn't been answered correctly before
-                  if (!answeredCorrectlySet.has(questionIdentifier)) {
-                    correctAnswers++;
-                    answeredCorrectlySet.add(questionIdentifier);
-                    scoreMeter.textContent = `Score: ${correctAnswers} / ${totalQuestions}`;
-                  }
-                  feedbackDiv.textContent = 'Correct!';
-                  feedbackDiv.className = 'feedback mt-2 text-sm text-green-600 font-semibold'; // Green for correct
-                } else {
-                  feedbackDiv.textContent = 'Incorrect.'; // Simpler message for incorrect
-                  feedbackDiv.className = 'feedback mt-2 text-sm text-red-600 font-semibold'; // Red for incorrect
-                  // Note: We don't decrement score if they change from correct to incorrect
-                }
-              }
-            });
-          });
-        } // End if elements exist
-      });
+      // Reset progress button
+      const resetProgressBtn = document.getElementById('reset-progress-btn');
+      if (resetProgressBtn) {
+        resetProgressBtn.addEventListener('click', () => {
+          if (confirm('Are you sure you want to reset your training progress? This cannot be undone.')) {
+            resetProgress();
+          }
+        });
+      }
 
       // --- Script for Show/Hide Answer Buttons ---
       document.querySelectorAll('.show-answer-btn').forEach(button => {
@@ -1234,10 +1321,6 @@
           button.textContent = isHidden ? 'Hide Questions' : 'Show Questions';
         });
       });
-
-      function updateProgressMeter() {
-        progressMeter.textContent = `Progress: ${viewedSections} / ${totalSections} sections viewed`;
-      }
     });
   </script>
 

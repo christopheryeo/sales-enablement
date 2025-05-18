@@ -143,32 +143,32 @@ def admin():
     """Admin page to view user progress statistics."""
     # For a real application, you would add authentication here
     # For this demo, we'll just display the data
-    
+
     conn = get_db_connection()
     if not conn:
         flash('Database connection error', 'error')
         return redirect(url_for('home'))
-    
+
     try:
         with conn.cursor() as cur:
             # Get all users with their progress
             cur.execute("""
-                SELECT email, "Organisation", sections_completed, quizzes_completed, last_active 
-                FROM email_registrations 
+                SELECT email, "Organisation", sections_completed, quizzes_completed, last_active
+                FROM email_registrations
                 ORDER BY last_active DESC
             """)
             users_data = cur.fetchall()
-            
+
             # Get total counts
             cur.execute("""
-                SELECT 
+                SELECT
                     COUNT(*) as total_users,
                     SUM(sections_completed) as total_sections,
                     SUM(quizzes_completed) as total_quizzes
                 FROM email_registrations
             """)
             totals = cur.fetchone()
-            
+
             # Format the data for the template
             users = []
             for user in users_data:
@@ -179,15 +179,15 @@ def admin():
                     'quizzes_completed': user[3],
                     'last_active': user[4].strftime('%Y-%m-%d %H:%M:%S') if user[4] else 'Never'
                 })
-            
+
             total_users = totals[0] if totals else 0
             total_sections = totals[1] if totals else 0
             total_quizzes = totals[2] if totals else 0
-            
-            return render_template('admin.html', 
-                                 users=users, 
-                                 total_users=total_users, 
-                                 total_sections=total_sections, 
+
+            return render_template('admin.html',
+                                 users=users,
+                                 total_users=total_users,
+                                 total_sections=total_sections,
                                  total_quizzes=total_quizzes)
     except Exception as e:
         print(f"Error in admin page: {e}")
@@ -203,25 +203,25 @@ def track_progress():
     # Check if user is registered
     if not session.get('registered'):
         return jsonify({'status': 'error', 'message': 'User not registered'}), 401
-    
+
     # Get user email from session
     email = session.get('user_email')
-    
+
     # Get progress data from request
     if not request.is_json:
         return jsonify({'status': 'error', 'message': 'Request must be JSON'}), 400
-    
+
     data = request.get_json()
     progress_type = data.get('type')  # 'section' or 'quiz'
-    
+
     if progress_type not in ['section', 'quiz']:
         return jsonify({'status': 'error', 'message': 'Invalid progress type'}), 400
-    
+
     # Connect to database
     conn = get_db_connection()
     if not conn:
         return jsonify({'status': 'error', 'message': 'Database connection error'}), 500
-    
+
     try:
         with conn.cursor() as cur:
             # Get current progress values
@@ -230,31 +230,52 @@ def track_progress():
                 (email,)
             )
             result = cur.fetchone()
-            
+
             if not result:
                 return jsonify({'status': 'error', 'message': 'User not found'}), 404
-            
+
             sections_completed, quizzes_completed = result
-            
+
+            # Get section ID from request data (V1.0.3)
+            section_id = data.get('section_id')
+
             # Update progress based on type
             if progress_type == 'section':
-                sections_completed += 1
+                # Only increment if section_id is provided (V1.0.3)
+                if section_id:
+                    # We'll use the client-side count instead of incrementing
+                    # This ensures we're tracking unique sections
+                    client_count = data.get('count', sections_completed + 1)
+                    sections_completed = max(sections_completed, client_count)
+                else:
+                    # Fallback to old behavior if no section_id
+                    sections_completed += 1
+
                 update_column = 'sections_completed'
                 new_value = sections_completed
             else:  # quiz
-                quizzes_completed += 1
+                # Only increment if we haven't already counted this quiz (V1.0.3)
+                quiz_id = data.get('quiz_id')
+                if quiz_id:
+                    # We'll use the client-side count instead of incrementing
+                    client_count = data.get('count', quizzes_completed + 1)
+                    quizzes_completed = max(quizzes_completed, client_count)
+                else:
+                    # Fallback to old behavior if no quiz_id
+                    quizzes_completed += 1
+
                 update_column = 'quizzes_completed'
                 new_value = quizzes_completed
-            
+
             # Update database
             cur.execute(
                 f"UPDATE email_registrations SET {update_column} = %s, last_active = CURRENT_TIMESTAMP WHERE email = %s",
                 (new_value, email)
             )
             conn.commit()
-            
+
             return jsonify({
-                'status': 'success', 
+                'status': 'success',
                 'message': f'{progress_type.capitalize()} progress updated',
                 'sections_completed': sections_completed,
                 'quizzes_completed': quizzes_completed

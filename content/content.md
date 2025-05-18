@@ -327,7 +327,6 @@ Understanding how SmartChat compares to other AI solutions is key to highlightin
   * It's specifically designed for secure integration with your internal knowledge base, becoming an expert on your business, procedures, and products. General LLMs primarily rely on vast public internet data and lack this focused, secure mechanism.
   * SmartChat offers deep customization and on-premise deployment options, allowing it to be tailored to your industry's specific jargon and unique processes. General LLMs often require significant extra development work to achieve similar levels of integration.
 
-
 ### SmartChat vs. Microsoft Co-pilot
 
   * SmartChat offers on-premise deployment for maximum data control and security, a key differentiator as Microsoft Co-pilot requires cloud connectivity. This provides organizations with absolute control over the physical location of their data.
