@@ -318,24 +318,25 @@ For questions or feedback, please contact [Your Name] at [your.email@example.com
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
-| V1.0.3                     | 8dad558   | Simplified Progress Tracking with Cookies                        |
-| 83df59c                    | 83df59c   | Update Git Versions and Tags table for V1.0.2g and V1.0.2h      |
-| V1.0.2h                    | e117a26   | Fixed Vercel Deployment                                          |
-| V1.0.2g                    | 73c52a8   | Closed off on V1.0.2f                                            |
-| V1.0.2f                    | ec791a6   | Built interactive training section                               |
-| V1.0.2e                    | e4fefad   | Reviewed training content                                        |
-| V1.0.2d                    | 041ff28   | Checked training content                                         |
-| V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                              |
-| V1.0.2                     | 02c3bab   | V1.0.2: User Cookies Persistent session with UUID cookies        |
-| planning-docs-created      | bdf11c2   | Created planning documents for this project                      |
-| V1.0.1                     | b81eb11   | Added an admin page to manage database                           |
-| V0.0.21                    | b5e31c9   | Integrate git commit history into Audit Trail section            |
-| V0.0.20                    | fb70011   | Add Audit Trail section to README.md                             |
-| V0.0.19                    | e2352de   | Fix file serving for Vercel deployment and rename hero image     |
-| V0.0.18                    | c10629d   | Add Vercel deployment configuration                              |
-| V0.0.17                    | 3783d3f   | Cleaned up database access                                       |
-| V0.0.16                    | d3d64f4   | Update README with Flask setup and email verification            |
-| V0.0.15                    | 4faf051   | User registration confirmation                                   |
+| V1.0.3b                    | 3720176   | Enhanced project documentation and organization                  |
+| V1.0.3a                    | 8dad558   | Simplified Progress Tracking with Cookies                       |
+| V1.0.2i                    | 83df59c   | Update Git Versions and Tags table for V1.0.2g and V1.0.2h      |
+| V1.0.2h                    | e117a26   | Fixed Vercel Deployment                                         |
+| V1.0.2g                    | 73c52a8   | Closed off on V1.0.2f                                           |
+| V1.0.2f                    | ec791a6   | Built interactive training section                              |
+| V1.0.2e                    | e4fefad   | Reviewed training content                                       |
+| V1.0.2d                    | 041ff28   | Checked training content                                        |
+| V1.0.2c                    | 1cbaaaa   | Tidied up readme.md                                             |
+| V1.0.2a                    | 02c3bab   | V1.0.2: User Cookies Persistent session with UUID cookies       |
+| V1.0.1b                    | bdf11c2   | Created planning documents for this project                     |
+| V1.0.1a                    | b81eb11   | Added an admin page to manage database                          |
+| V0.0.21                    | b5e31c9   | Integrate git commit history into Audit Trail section           |
+| V0.0.20                    | fb70011   | Add Audit Trail section to README.md                            |
+| V0.0.19                    | e2352de   | Fix file serving for Vercel deployment and rename hero image    |
+| V0.0.18                    | c10629d   | Add Vercel deployment configuration                             |
+| V0.0.17                    | 3783d3f   | Cleaned up database access                                      |
+| V0.0.16                    | d3d64f4   | Update README with Flask setup and email verification           |
+| V0.0.15                    | 4faf051   | User registration confirmation                                  |
 | V0.0.14                    | 352861e   | Docs: Add section on database test scripts to README             |
 | V0.0.13                    | 861d0bc   | Add test script to list all email registrations                  |
 | V0.0.12                    | f19de1e   | Refine DB test scripts                                           |
