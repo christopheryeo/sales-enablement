@@ -1,127 +1,187 @@
-# Getting Started with AI Project Management
+# SmartChat Sales Enablement - Project Management Guide
 
-Welcome! If you’re a programmer new to working with AI or collaborating on large projects, this guide is for you. Here, you’ll learn a simple, organized way to manage your work, keep your team on the same page, and make the most of collaborating with both humans and AI.
+## Table of Contents
+- [Project Structure](#project-structure)
+- [Workflow](#workflow)
+- [Documentation Standards](#documentation-standards)
+- [Version Control](#version-control)
+- [AI Collaboration](#ai-collaboration)
+- [Quality Assurance](#quality-assurance)
+- [Templates & Examples](#templates--examples)
+- [Best Practices](#best-practices)
 
----
+## Introduction
 
-## Why Use a Structured Approach?
+Welcome to the SmartChat Sales Enablement project management guide. This document provides a structured approach to managing our development process, ensuring consistency, quality, and effective collaboration between team members and AI assistants.
 
-AI projects can move fast and get complicated. Having a clear structure helps everyone:
-- Know what’s being worked on
-- Find important information quickly
-- Track progress and changes
-- Collaborate smoothly with teammates and AI tools
+Whether you're working on new features, fixing bugs, or improving documentation, this guide will help you navigate our project structure and processes.
 
----
+## Project Structure
 
-## How the Project is Organized
+Our project follows a well-organized directory structure to maintain clarity and consistency. Here's how it's structured:
 
-The project uses folders and files to keep everything tidy. Here’s what you’ll find:
+```
+plans/
+├── 0_backlog/           # New ideas and feature requests
+├── 1_planning/          # Upcoming versions being planned
+│   └── Vx.x.x/         # Version-specific planning
+│       ├── README.md    # Version overview
+│       ├── design.md    # Technical design decisions
+│       ├── spec.md      # Detailed specifications
+│       └── ai_prompts_log.md  # AI interaction history
+├── 2_inprogress/        # Features currently in development
+├── 3_completed/         # Completed versions
+├── _reference/          # Documentation and references
+└── _templates/          # Standard templates
+```
 
-### 0_backlog/
-This is the ideas bin! Drop in any new feature ideas, requests, or cool thoughts. Nothing is too rough—this is where brainstorming happens. Later, the best ideas move forward.
+### 1. Backlog (`0_backlog/`)
+- **Purpose**: Capture all new ideas, feature requests, and enhancements
+- **Process**:
+  - Create a new markdown file for each idea
+  - Include problem statement, proposed solution, and potential impact
+  - Tag with priority (P0-P3) and estimated effort (S/M/L/XL)
+  - Review during weekly planning meetings
 
-### 1_planning/
-This is where the real planning happens for the next release or version. Each version gets its own folder, with three important files:
+### 2. Planning (`1_planning/`)
+- **Version Folders**: Each version follows semantic versioning (e.g., V1.2.3)
+- **Required Files**:
+  - `README.md`: Version overview and goals
+  - `design.md`: Technical architecture and decisions
+  - `spec.md`: Detailed requirements and acceptance criteria
+  - `ai_prompts_log.md`: Record of AI interactions
 
-- **README.md**
-  - _What it is:_ A friendly summary of what’s planned for this version.
-  - _What to include:_
-    - Goals and what you hope to achieve
-    - List of main features or changes
-    - Why these things matter
-    - Key dates or deadlines
-    - Links to other docs (like design.md and spec.md)
-    - Status (e.g., planning, in progress, done)
-  - _Why it matters:_ Anyone (even someone new) can quickly understand what’s going on and where to look for more info.
+### 3. In Progress (`2_inprogress/`)
+- **Purpose**: Track active development work
+- **Guidelines**:
+  - Create a branch for each feature/fix
+  - Reference the planning documents
+  - Update status regularly
 
-- **design.md**
-  - _What it is:_ The blueprint for how things will work under the hood.
-  - _What to include:_
-    - Diagrams showing how parts fit together
-    - Explanations for big technical decisions
-    - How data moves through the system
-    - UI sketches or wireframes (if needed)
-    - Notes about security, scaling, or connecting to other systems
-    - Any trade-offs or alternative ideas you considered
-  - _Why it matters:_ Makes sure everyone builds things the same way, and future team members (or AI assistants!) can understand your thinking.
-
-- **spec.md**
-  - _What it is:_ The detailed list of what needs to be built and how to know when it’s done.
-  - _What to include:_
-    - What the system should do (features, user stories)
-    - Requirements for speed, security, reliability, etc.
-    - Clear criteria for when something is “done”
-    - Edge cases or tricky situations to watch for
-    - Example test cases
-  - _Why it matters:_ Keeps everyone (including AI tools) on the same page about what “finished” looks like.
-
-### 2_inprogress/
-(Optional) A place to track things currently being worked on. Helps teams see what’s active and avoid stepping on each other’s toes.
-
-### 3_completed/
-When a version is finished, all its files move here. This is your project’s memory—great for audits, onboarding, or learning from the past.
-
-### _reference/
-Quick-access docs, like logs of what’s been finished or this very guide!
-
-### _templates/
-Handy templates for planning and documenting work. Use these to keep things consistent and easy to read.
+### 4. Completed Work (`3_completed/`)
+- **Purpose**: Archive of completed work
+- **Included for each version**:
+  - Final documentation
+  - Test results
+  - Retrospective notes
+  - Deployment artifacts
 
 ---
 
-## What’s the Difference Between spec.md and design.md?
+## Documentation Standards
 
-- **spec.md (“Specification”)**
-  - _What is it?_ The “what” and “why.” Lists features, requirements, and how you’ll know when you’re done.
-  - _What’s inside?_ User stories, requirements, acceptance criteria, test plans, and edge cases.
-  - _Who’s it for?_ Anyone who needs to know what is expected: product owners, devs, testers.
+### Version Planning (`README.md`)
+- **Purpose**: High-level overview of the version
+- **Sections**:
+  - Executive summary
+  - Business objectives
+  - Success metrics
+  - Timeline and milestones
+  - Dependencies and risks
+  - Team members and roles
 
-- **design.md (“Design”)**
-  - _What is it?_ The “how.” Explains how you’ll build what’s in the spec.md.
-  - _What’s inside?_ Diagrams, technical decisions, data flows, architecture, and design rationale.
-  - _Who’s it for?_ Developers, architects, and future maintainers who need to understand the technical plan.
+### Technical Design (`design.md`)
+- **Purpose**: Technical blueprint for implementation
+- **Sections**:
+  - System architecture
+  - Data models and flows
+  - API specifications
+  - Security considerations
+  - Performance requirements
+  - Deployment architecture
+  - Technical debt and trade-offs
 
-In short: **spec.md** says what you’re building and what success looks like; **design.md** explains how you’ll build it and why you chose that approach.
+### Specifications (`spec.md`)
+- **Purpose**: Detailed requirements and acceptance criteria
+- **Sections**:
+  - User stories with acceptance criteria
+  - Functional requirements
+  - Non-functional requirements
+  - Test scenarios and edge cases
+  - Performance benchmarks
+  - Rollback procedures
 
----
+## Version Control
 
-## Logging Your Prompts
+### Branch Naming Conventions
+- `feature/` - New features (e.g., `feature/user-authentication`)
+- `fix/` - Bug fixes (e.g., `fix/login-validation`)
+- `docs/` - Documentation updates
+- `chore/` - Maintenance tasks
+- `release/` - Release preparation
 
-For each version, keep a log of all the prompts (requests, instructions, and decisions) you use while developing. This is done by creating an `ai_prompts_log.md` file in each version’s planning directory (e.g., `plans/1_planning/V1.0.2f/ai_prompts_log.md`).
+### Commit Message Format
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+```
+<type>[optional scope]: <description>
 
-- **What to log:** Only the prompts you provide (not the AI responses).
-- **Why log prompts?**
-  - See how many prompts it took to develop each version
-  - Create a transparent audit trail of your design and implementation process
-  - Help onboard new team members by showing the reasoning and context behind features
-  - Enable reproducibility and continuous improvement
+[optional body]
 
-This practice is especially useful for AI-assisted development, as it captures the evolution of your thinking and makes your workflow more transparent and measurable.
+[optional footer(s)]
+```
 
----
+**Types**:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes
+- `refactor`: Code changes that neither fix a bug nor add a feature
+- `perf`: Performance improvements
+- `test`: Adding tests
+- `chore`: Changes to the build process or auxiliary tools
 
-## Tips for Working with AI and Teams
+## AI Collaboration
 
-- **Be clear and specific** in your docs—AI tools work best with well-defined requirements.
-- **Keep things up to date.** Move ideas and features through the folders as their status changes.
-- **Use diagrams and examples**—they help both people and AI understand complex systems.
-- **Ask for help!** Don’t hesitate to use AI assistants for brainstorming, documentation, or even code reviews.
-- **Review together.** Have regular check-ins to make sure everyone (human and AI) is aligned.
+### Prompt Management
+- **File**: `ai_prompts_log.md` in each version directory
+- **What to log**:
+  - Initial prompts and refinements
+  - Key decisions and rationale
+  - Successful patterns and anti-patterns
+  - Context and constraints provided
 
----
+### Best Practices
+1. **Be Specific**
+   - Clearly define the task
+   - Provide necessary context
+   - Specify the desired output format
 
-## Final Thoughts
+2. **Iterative Refinement**
+   - Start with high-level prompts
+   - Refine based on outputs
+   - Document iterations
 
-A little structure goes a long way, especially in AI projects. By following this system, you’ll:
-- Save time searching for info
-- Make onboarding new teammates easier
-- Avoid misunderstandings
-- Build better, faster, and smarter—together with AI
+3. **Security**
+   - Never include sensitive data
+   - Review outputs for security implications
+   - Follow data handling guidelines
 
-Happy coding and collaborating!
+## Quality Assurance
 
-## 3. Workflow
+### Testing Strategy
+- **Unit Tests**: Test individual components in isolation
+- **Integration Tests**: Verify component interactions
+- **E2E Tests**: Validate complete user flows
+- **Performance Tests**: Ensure system meets performance requirements
+
+### Code Review Process
+1. **Pre-Submit**
+   - Self-review your changes
+   - Run all relevant tests
+   - Update documentation
+
+2. **Review Request**
+   - Assign appropriate reviewers
+   - Provide context and testing details
+   - Link related issues
+
+3. **Review Guidelines**
+   - Check for correctness and completeness
+   - Verify test coverage
+   - Ensure code style consistency
+   - Consider security implications
+
+## Workflow
 
 ### 3.1. Idea Capture (Backlog)
 - All new ideas, feature requests, and enhancements are first documented in `0_backlog/`.
@@ -147,57 +207,109 @@ Happy coding and collaborating!
 
 ---
 
-## 4. Benefits
+## Templates & Examples
 
-- **Clarity & Traceability**: Every idea, design decision, and completed feature is documented and versioned.
-- **Iterative Delivery**: Supports agile, incremental releases with clear milestones and documentation.
-- **Team Alignment**: Templates and structure ensure all contributors are on the same page.
-- **Knowledge Retention**: Completed work and lessons learned are easily accessible for future projects or audits.
-- **Adaptability**: The system can be expanded or contracted to fit projects of varying size and complexity.
+### Available Templates
 
----
+#### 1. Work in Progress (WIP) Template
+**Location:** `_templates/wip_template.md`  
+**When to Use:** When starting work on a new feature or enhancement  
+**Purpose:** Guides the planning and documentation of new features from ideation to implementation-ready state
 
-## 5. Best Practices
+**Key Components:**
+- Feature identification and naming
+- Requirements gathering
+- Design considerations
+- Implementation planning
 
-- Regularly review the backlog and update priorities.
-- Keep planning documentation detailed but concise; focus on actionable items.
-- Move features promptly between phases to reflect their true status.
-- Use the provided templates for all documentation to ensure consistency.
-- Archive not just code but also design rationale and lessons learned.
+#### 2. Completed Feature Template
+**Location:** `_templates/completed_template.md`  
+**When to Use:** When a feature is completed and ready for review  
+**Purpose:** Documents the completed feature for knowledge sharing and future reference
 
----
+**Key Components:**
+- Feature summary
+- Implementation details
+- Testing results
+- Architecture impact
 
-## 6. Example: Directory Layout
+### How to Use the Templates
 
+1. **For New Features:**
+   - Copy `wip_template.md` to your version folder in `1_planning/`
+   - Follow the template's instructions to document the feature
+   - Move to `2_inprogress/` when development starts
+   - Upon completion, use `completed_template.md` to document the final state
+
+2. **For Quick Reference:**
+   - Use the templates as checklists to ensure all aspects are covered
+   - Customize sections as needed for your specific feature
+
+### Example Workflow
+
+```mermaid
+graph TD
+    A[New Idea] -->|Create| B[Backlog Item]
+    B -->|Prioritize| C[Planning]
+    C -->|Use wip_template.md| D[Development]
+    D -->|Complete| E[Use completed_template.md]
+    E --> F[Documentation]
+    F --> G[Review & Archive]
 ```
-plans/
-  0_backlog/
-    feature-idea.md
-  1_planning/
-    V1.0.3/
-      README.md
-      design.md
-      spec.md
-    V1.0.4/
-      ...
-  2_inprogress/
-    ...
-  3_completed/
-    V1.0.2/
-      README.md
-      design.md
-      spec.md
-      summary.md
-      test_session_cookie.py
-  _reference/
-    completed_features_log.md
-    prodct_management.md
-  _templates/
-    completed_template.md
-    wip_template.md
-```
 
----
+### Template Maintenance
+- Templates are living documents - suggest improvements as needed
+- Keep templates in sync with this guide
+- Document any customizations in the template's header
+
+## Best Practices
+
+### For Developers
+- Write self-documenting code
+- Keep commits small and focused
+- Write tests before implementation (TDD)
+- Document assumptions and decisions
+- Review your own code before submitting
+
+### For Documentation
+- Keep it up to date
+- Use consistent formatting
+- Include examples
+- Link to related resources
+- Make it searchable
+
+### For Collaboration
+- Communicate early and often
+- Be specific in feedback
+- Assume positive intent
+- Document decisions
+- Share knowledge
+
+## Troubleshooting
+
+### Common Issues
+1. **Merge Conflicts**
+   - Pull latest changes frequently
+   - Use `git rebase` to keep history clean
+   - Resolve conflicts carefully
+
+2. **Build Failures**
+   - Check error messages
+   - Verify dependencies
+   - Ensure environment consistency
+
+3. **Test Failures**
+   - Reproduce locally
+   - Check for environmental differences
+   - Review recent changes
+
+## Glossary
+
+- **Sprint**: A time-boxed development cycle (typically 2 weeks)
+- **Epic**: A large body of work that can be broken down into smaller stories
+- **User Story**: A requirement expressed from the user's perspective
+- **Technical Debt**: The implied cost of additional rework caused by choosing an easy solution now instead of a better approach
+- **CI/CD**: Continuous Integration/Continuous Deployment
 
 ## 7. Applicability
 

@@ -1,50 +1,72 @@
-Context: A feature has been moved into the planning stage and the idea file 
-has been referenced using filename feature XXX.md.
+# Feature Planning Template
 
-Instructions:
+## Purpose
+This template is used to document new features during the planning phase. It helps ensure all necessary aspects of the feature are considered before development begins.
 
-Read the Referenced File: Review the contents of the feature file that was 
-referenced using @ (e.g., feature V1.0.md) to understand the feature idea 
-and its intended goal.
+## How to Use
+1. Copy this template to `plans/1_planning/[feature-name]/`
+2. Fill in each section below
+3. Move to `2_inprogress/` when development starts
+4. Update this document as needed during development
 
-Determine Feature Name: Extract a short, clear name for the feature based 
-on the file or content (e.g., Feature V1.0.md → “Chart Feature”).
+## Basic Information
+- **Feature Name**: [Short, descriptive name]
+- **Target Version**: [e.g., V1.2.0]
+- **Priority**: [P0 (Critical) to P3 (Nice-to-have)]
+- **Estimated Effort**: [S/M/L/XL]
+- **Owner**: [Team member responsible]
+- **Stakeholders**: [Other involved parties]
 
-Create Folder: Inside docs/1_planning/, create a new folder named after the 
-feature (e.g., docs/1_planning/chart-feature/).
+## 1. Overview
+[Brief description of the feature and its purpose]
 
-Create Standard Files: Within this folder, generate the following files:
+## 2. Goals & Objectives
+- [ ] Goal 1
+- [ ] Goal 2
+- [ ] Goal 3
 
-- README.md
-- spec.md
-- design.md
+## 3. User Stories
+As a [user type], I want to [action] so that [benefit].
 
-Populate README.md:
+### Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+- [ ] Criterion 3
 
-- Extract and include the Goal of the feature.
-- Populate the following sections using your best judgement based on the 
-file contents:
+## 4. Technical Design
+[Outline the technical approach, architecture changes, and any technical considerations]
 
-Key Requirements — List the core functional or technical requirements implied 
-or stated in the idea.
+### Data Model Changes
+- [ ] Change 1
+- [ ] Change 2
 
-Target Audience — Define who this feature is for (e.g., developers, analysts, 
-end users).
+### API Changes
+- [ ] Endpoint 1
+- [ ] Endpoint 2
 
-Open Questions — List any specific clarifying questions that would need to be 
-answered if you have them and if things are still confusing.
+## 5. UI/UX
+[Include wireframes, mockups, or descriptions of the user interface]
 
-Populate spec.md:
+## 6. Dependencies
+- [ ] Dependency 1
+- [ ] Dependency 2
 
-- Outline the feature’s intended functionality and technical scope.
-- Include 2–3 different UI treatments or layout options for how this feature 
-could be visually presented or interacted with in the product 
-(e.g., tabs vs. dropdown, modal vs. sidebar, chart styles, etc.).
+## 7. Risks & Mitigations
+| Risk | Likelihood | Impact | Mitigation Strategy |
+|------|------------|--------|---------------------|
+| Risk 1 | Low/Medium/High | Low/Medium/High | Strategy |
 
-- Highlight trade-offs or use cases that might make one design better than 
-another.
+## 8. Open Questions
+- [ ] Question 1
+- [ ] Question 2
 
-Populate design.md:
+## 9. Definition of Done
+- [ ] Code complete
+- [ ] Unit tests written and passing
+- [ ] Integration tests written and passing
+- [ ] Documentation updated
+- [ ] Code reviewed
+- [ ] Product owner sign-off
 
-Add any architectural thoughts, visual sketches (as markdown code or descriptions), 
-component interactions, or other design considerations worth capturing early.
+## 10. Notes
+[Any additional notes or context]

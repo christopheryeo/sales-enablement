@@ -1,89 +1,324 @@
-# SmartChat Sales Enablement
+<div align="center">
+  <h1>SmartChat Sales Enablement</h1>
+  <p>
+    <strong>A comprehensive sales enablement platform for SmartChat resellers</strong>
+  </p>
+  <p>
+    <a href="#features">Features</a> •
+    <a href="#getting-started">Getting Started</a> •
+    <a href="#project-structure">Project Structure</a> •
+    <a href="#database-configuration">Database</a> •
+    <a href="#testing">Testing</a>
+  </p>
+</div>
 
-A comprehensive sales enablement website for SmartChat resellers. This website provides training materials, product information, and sales resources.
+## 📋 Overview
 
-## Features
+SmartChat Sales Enablement is a robust platform designed to empower SmartChat resellers with comprehensive training, product knowledge, and sales resources. The platform features an intuitive interface with interactive training modules, progress tracking, and user management capabilities.
 
-- Interactive navigation
-- Comprehensive training program with:
-  - Collapsible sections
-  - Visited section indicators (checkboxes)
-  - Training progress bar
-- Email Registration and Verification:
-  - Users access training via an email registration page (`/check_registration`).
-  - Entered email is checked against the database.
-  - A loading indicator provides feedback during submission.
-- Team information
-- Product details and differentiators
-- Sales process guidelines
-- Technical specifications
-- Homepage hero image
+## ✨ Features <a name="features"></a>
 
-## Setup and Local Development
+### Interactive Training Program
+- **Progress Tracking**
+  - Visual progress indicators
+  - Persistent session tracking using cookies
+  - Section completion status
+  - Quiz completion tracking
+- **Interactive Elements**
+  - Collapsible sections for better navigation
+  - Reinforcement questions with show/hide answers
+  - Dynamic content loading
+  - Responsive design for all devices
 
-1. **Create `.env` file:** See "Database Tests" section below for details on setting up the `.env` file with your `AIVEN_DB_URI`.
-2. **Install Dependencies:**
+### User Management
+- Email-based registration and verification
+- Session management with UUID cookies
+- Admin dashboard for user management
+- Progress tracking per user
+
+### Content Management
+- Markdown-driven content system
+- Easy content updates without code changes
+- Version-controlled training materials
+- Interactive quizzes and knowledge checks
+
+## 🚀 Getting Started <a name="getting-started"></a>
+
+### Prerequisites
+
+- Python 3.8+
+- PostgreSQL 13+ (local or Aiven)
+- Node.js 16+ (for frontend assets)
+- Git
+
+### Quick Start
+
+1. **Clone and set up the repository**
    ```bash
+   # Clone the repository
+   git clone https://github.com/christopheryeo/sales-enablement.git
+   cd sales-enablement
+   
+   # Set up Python virtual environment
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # Install dependencies
    pip install -r requirements.txt
    ```
-3. **Run the Flask App:**
-   ```bash
-   python app.py
+
+2. **Configure environment**
+   Create a `.env` file with the following variables:
+   ```env
+   # Application
+   FLASK_APP=src/app.py
+   FLASK_ENV=development
+   SECRET_KEY=your-secret-key-here
+   
+   # Database
+   AIVEN_DB_URI=postgres://user:password@host:port/dbname?sslmode=require
+   
+   # Optional: Email Configuration
+   MAIL_SERVER=smtp.example.com
+   MAIL_PORT=587
+   MAIL_USE_TLS=True
+   MAIL_USERNAME=your-email@example.com
+   MAIL_PASSWORD=your-email-password
    ```
-   The application will typically run on `http://127.0.0.1:8000`.
 
-## Structure
+3. **Initialize the database**
+   ```bash
+   flask db upgrade
+   ```
 
-- `app.py` - Flask application logic (routing, database interaction, session management).
-- `requirements.txt` - Python package dependencies.
-- `templates/` - HTML templates (`index.html`, `register.html`).
-- `static/` - Static assets (CSS, images, JavaScript).
-- `content/` - Markdown content files.
-- `.env` - Environment variables (database URI - **not committed to Git**).
-- `tests/` - Database testing scripts.
+4. **Run the application**
+   ```bash
+   # Development server
+   flask run --port 8000
+   
+   # Production (using Gunicorn)
+   gunicorn "src.app:create_app()" -b :8000
+   ```
+   Visit `http://localhost:8000` in your browser.
 
-## Database Tests
+## 🏗️ Project Structure <a name="project-structure"></a>
 
-This project includes scripts to test the connection and functionality with the configured Aiven PostgreSQL database.
+```
+sales-enablement/
+├── src/                    # Application source code
+│   ├── app.py             # Flask application factory
+│   ├── config.py          # Configuration management
+│   ├── models/            # Database models
+│   ├── routes/            # Application routes
+│   ├── services/          # Business logic
+│   └── utils/             # Helper functions
+│
+├── static/               # Static assets
+│   ├── css/               # Stylesheets
+│   ├── js/                # Client-side scripts
+│   └── images/            # Image assets
+│
+├── templates/            # Jinja2 templates
+│   ├── base.html          # Base template
+│   ├── auth/              # Authentication templates
+│   └── training/          # Training section templates
+│
+├── tests/                # Test suite
+│   ├── e2e/              # End-to-end tests
+│   ├── integration/       # Integration tests
+│   └── unit/             # Unit tests
+│
+├── plans/                # Project documentation
+│   ├── 0_backlog/        # Future features
+│   ├── 1_planning/       # Upcoming versions
+│   ├── _reference/       # Documentation
+│   └── _templates/       # Documentation templates
+│
+├── migrations/           # Database migrations
+├── content/              # Dynamic content (Markdown)
+├── requirements.txt      # Python dependencies
+└── README.md            # Project documentation
+```
 
-### Setup
+## 🔧 Database Configuration <a name="database-configuration"></a>
 
-1.  **Install Dependencies:** Ensure you have `psycopg2-binary` and `python-dotenv` installed:
-    ```bash
-    pip install psycopg2-binary python-dotenv
-    ```
-2.  **Create `.env` file:** Create a file named `.env` in the project root directory.
-3.  **Add Database URI:** Add your Aiven database connection string to the `.env` file like this:
-    ```
-    AIVEN_DB_URI="postgres://user:password@host:port/dbname?sslmode=require"
-    ```
-    *(The `.env` file is included in `.gitignore` to prevent accidental commits.)*
+The application uses PostgreSQL as its primary database. You can use either a local PostgreSQL instance or Aiven's managed PostgreSQL service.
 
-### Test Scripts
+### Option 1: Local PostgreSQL
 
-The test scripts are located in the `tests/` directory:
+1. **Install PostgreSQL**
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install postgresql postgresql-contrib
+   
+   # macOS (using Homebrew)
+   brew install postgresql
+   ```
 
--   `tests/aiven_db_test.py`: Connects to the DB, creates the `email_registrations` table (if it doesn't exist), inserts a test email, and reads it back. Uses `ON CONFLICT DO NOTHING` for inserts.
--   `tests/list_records.py`: Connects to the DB and lists all records currently present in the `email_registrations` table.
--   `tests/delete_records.py`: Deletes all records from the `email_registrations` table for testing purposes.
--   `tests/add_column.py`: Adds the "Organisation" column to the `email_registrations` table if it doesn't exist.
--   `tests/get_schema.py`: Shows the current schema of the project tables.
+2. **Create Database and User**
+   ```bash
+   sudo -u postgres createuser -P your_username
+   sudo -u postgres createdb -O your_username your_database
+   ```
+
+3. **Update `.env`**
+   ```env
+   AIVEN_DB_URI=postgresql://your_username:your_password@localhost:5432/your_database
+   ```
+
+### Option 2: Aiven PostgreSQL
+
+1. **Create Aiven Service**
+   - Log in to [Aiven Console](https://console.aiven.io/)
+   - Create a new PostgreSQL service
+   - Wait for the service to be provisioned
+
+2. **Get Connection String**
+   - Go to your service overview
+   - Click on "Connection information"
+   - Copy the "Connection URI"
+
+3. **Update `.env`**
+   ```env
+   AIVEN_DB_URI=your_aiven_connection_string
+   ```
+
+### Database Migrations
+
+The project uses Flask-Migrate for database migrations:
+
+```bash
+# Initialize migrations (first time only)
+flask db init
+
+# Create new migration
+flask db migrate -m "Your migration message"
+
+# Apply migrations
+flask db upgrade
+```
+
+## 🧪 Testing <a name="testing"></a>
 
 ### Running Tests
 
-Navigate to the project root directory in your terminal and run a script using:
+The project includes a comprehensive test suite to ensure code quality and functionality.
+
+#### Unit Tests
+```bash
+# Run all unit tests
+pytest tests/unit/
+
+# Run specific test file
+pytest tests/unit/test_module.py
+```
+
+#### Integration Tests
+```bash
+# Run all integration tests
+pytest tests/integration/
+
+# Run with coverage report
+pytest --cov=src tests/
+```
+
+#### End-to-End Tests
+```bash
+# Start the test server
+python tests/e2e/start_server.py &
+
+
+# Run Cypress tests
+cd tests/e2e
+npm install
+npx cypress run
+```
+
+### Database Test Scripts
+
+Utility scripts for database testing and maintenance are available in `tests/db/`:
+
+| Script | Purpose |
+|--------|---------|
+| `test_connection.py` | Verify database connectivity |
+| `schema_migration.py` | Apply database schema changes |
+| `seed_database.py` | Populate with test data |
+| `backup_database.py` | Create database backups |
+
+Example usage:
+```bash
+# Test database connection
+python tests/db/test_connection.py
+
+# Backup production data
+python tests/db/backup_database.py --env production
+```
+
+### Test Coverage
+
+Generate a coverage report:
+```bash
+coverage run -m pytest
+coverage report -m
+coverage html  # Generates HTML report in htmlcov/
+```
+
+## 🛠 Development
+
+### Code Style
+
+This project follows [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide. Use the following tools to maintain code quality:
 
 ```bash
-python tests/<script_name>.py
-# Example:
-python tests/list_records.py
+# Auto-format code with Black
+black src/
+
+# Sort imports with isort
+isort src/
+
+
+# Check for common issues
+flake8 src/
 ```
+
+### Pre-commit Hooks
+
+Install pre-commit hooks to automatically check your code before each commit:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📫 Contact
+
+For questions or feedback, please contact [Your Name] at [your.email@example.com]
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by Your Team</p>
+  <p>Last updated: May 2025</p>
+</div>
 
 ## Git Versions and Tags
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
-| V1.0.3                     | [COMMIT]  | Simplified Progress Tracking with Cookies                        |
+| V1.0.3                     | 8dad558   | Simplified Progress Tracking with Cookies                        |
 | 83df59c                    | 83df59c   | Update Git Versions and Tags table for V1.0.2g and V1.0.2h      |
 | V1.0.2h                    | e117a26   | Fixed Vercel Deployment                                          |
 | V1.0.2g                    | 73c52a8   | Closed off on V1.0.2f                                            |

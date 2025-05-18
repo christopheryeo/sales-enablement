@@ -1,43 +1,95 @@
-Context: A feature folder has been moved into the completed stage. 
-The folder is referenced in this chat.
+# Feature Completion Report
 
-Instructions:
+## Purpose
+This template documents a completed feature, capturing key information for future reference, knowledge sharing, and architectural review.
 
-Review the Feature: Read and synthesise the content within the referenced 
-folder — including README.md, spec.md, design.md, and any 
-implementation_notes.md — to gain a clear understanding of what was delivered,
-how it works, and what outcomes it achieves.
+## How to Use
+1. Copy this template to `plans/3_completed/[version]/[feature-name]/`
+2. Fill in each section below
+3. Update the project's `completed_features_log.md`
+4. Notify relevant stakeholders of completion
 
-Generate Completion Summary: Write a concise 1–3 paragraph summary describing:
+---
 
-- The purpose of the feature
-- What was built
-- Any notable design decisions or functional results
+# [Feature Name]
 
-Create summary.md: Save the summary into the same folder as a new file titled 
-summary.md.
+## 1. Executive Summary
+- **Completion Date**: [YYYY-MM-DD]
+- **Version**: [e.g., V1.2.0]
+- **Owner**: [Primary developer/team]
+- **Stakeholders**: [Business/product owners, other teams]
 
-Log the Completion: Create a single-line log entry for inclusion in the 
-organisation-wide completed_features_log.md:
+### Overview
+[1-2 paragraph summary of what was built and why]
 
-Format:
-- **[Feature Name]:** Completed [YYYY-MM-DD]. 
-  [One-sentence summary of purpose/outcome].
+### Business Impact
+[How does this feature benefit the business or users?]
 
-Suggest Architecture Review: Identify which specific sections of 
-docs/_reference/architecture.md might need a human review based on 
-this feature. Do not edit the architecture file directly — 
-simply suggest targeted areas for consideration 
-(e.g., “Consider updating the 'API Endpoints' section due to new endpoint X”).
+## 2. Implementation Details
 
-Output:
+### What Was Delivered
+- [ ] Feature 1
+- [ ] Feature 2
+- [ ] Documentation updates
+- [ ] Test coverage
 
-- Provide the content of the generated summary.md.
-- Provide the exact log entry to append to 
-  docs/_reference/completed_features_log.md.
-- Provide the list of suggested sections in architecture.md that may 
-  need review.
+### Technical Highlights
+- Key technical decisions
+- Interesting implementation details
+- Performance considerations
 
-Note
-Once you’ve completed this, continue by assisting with any architectural 
-review, documentation updates, or rollout tasks. This process may involve multiple steps or iterations.
+## 3. Testing & Quality
+
+### Test Coverage
+- Unit tests: [X]%
+- Integration tests: [X]%
+- E2E tests: [X]%
+
+### Known Issues
+- [ ] Issue 1 (JIRA-123)
+- [ ] Issue 2 (JIRA-124)
+
+## 4. Performance Metrics
+- [ ] Performance impact
+- [ ] Load test results
+- [ ] Any regressions found
+
+## 5. Rollout Plan
+- [ ] Deployment strategy
+- [ ] Feature flags/toggles
+- [ ] Monitoring in place
+
+## 6. Documentation
+- [ ] API documentation
+- [ ] User guides
+- [ ] Developer notes
+
+## 7. Lessons Learned
+- What went well
+- What could be improved
+- Key takeaways for future projects
+
+## 8. Architecture Review Notes
+[Identify any architectural changes or considerations that need review]
+
+## 9. Completion Checklist
+- [ ] Code merged to main branch
+- [ ] Tests passing
+- [ ] Documentation updated
+- [ ] Stakeholder sign-off
+- [ ] Deployment completed
+- [ ] Monitoring verified
+
+## 10. Log Entry
+```
+- **[Feature Name]:** Completed [YYYY-MM-DD]. [Brief description of what was achieved].
+```
+
+## 11. Next Steps
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Follow-up items
+
+---
+
+*This document should be considered a living document. Update it as needed during the feature's lifecycle.*
