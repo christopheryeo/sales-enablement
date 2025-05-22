@@ -31,10 +31,10 @@ These features have been fully implemented and moved to the completed section of
 
 These features are still in the idea stage and have not yet been planned or implemented:
 
-- **Use cookies to track exact section and quiz completion** (V1.0.4)
-  - Store in cookies the exact sections the user has read and the exact quizzes completed, including their answers.
-  - When the user enters the training page, the app will read the cookie and automatically tick checkboxes for all sections they have read and restore answers for all quizzes they have previously attempted.
-  - This enables persistent, granular progress tracking for both sections and quizzes, supporting richer feedback and future features.
+- **Use cookies to track completion of the first training question** (V1.0.4)
+  - As an initial step for V1.0.4, implement cookie-based tracking for whether the user has completed the *first question* of the training page.
+  - When the user revisits the training page, the app will read this cookie and visually indicate if the first question was previously completed.
+  - This will serve as a pilot for the broader feature of tracking all sections and quizzes.
 
 - **Display app version in menu bar** (V1.0.5)
   - Show the current application version in small font somewhere in the menu bar for quick reference and improved transparency for users and developers.

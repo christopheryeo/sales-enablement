@@ -3,14 +3,13 @@
 **Version:** V1.0.4
 
 ## Goal
-Use cookies to track the exact sections that have been read and quizzes that have been completed by the user. When the user enters the training page, the app will read the cookie and automatically tick checkboxes for all sections they have read and restore answers for all quizzes they have previously attempted.
+As an initial implementation for V1.0.4, use cookies to track whether the *first question* in the training page has been completed by the user. When the user revisits the training page, the app will read this cookie and visually indicate if the first question was previously completed. This will serve as a pilot for potentially broader progress tracking.
 
 ## Key Requirements
-- Track exactly which sections a user has read and which quizzes (and answers) they have completed.
-- Store section and quiz state in cookies for persistence.
-- When entering the training page, restore all previously read sections as checked and restore quiz answers.
-- Integrate with feedback and achievement UI.
-- Enable future migration to server-side tracking if needed.
+- Track whether the *first question* of the training page has been completed.
+- Store this completion state in a cookie for persistence.
+- When the user enters the training page, restore the visual indication of the first question's completion status based on the cookie.
+- Ensure this initial implementation can be extended for more granular tracking (all sections/quizzes) in the future.
 
 ## Target Audience
 - End users (trainees) taking quizzes.
