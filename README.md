@@ -318,6 +318,7 @@ For questions or feedback, please contact [Your Name] at [your.email@example.com
 
 | Tag                        | Commit ID | Description                                                      |
 |----------------------------|-----------|------------------------------------------------------------------|
+| V1.0.4                    | 9983d3d   | Merge pull request #1: First question cookie tracking            |
 | V1.0.3c                    | 199fbea   | Enhanced git versions section of readme.md                       |
 | V1.0.3b                    | 3720176   | Enhanced project documentation and organization                  |
 | V1.0.3a                    | 8dad558   | Simplified Progress Tracking with Cookies                       |
