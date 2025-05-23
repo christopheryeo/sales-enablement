@@ -1182,6 +1182,21 @@
       deleteCookie(SECTION_COUNT_COOKIE);
       deleteCookie(QUIZ_COUNT_COOKIE);
 
+      // --- V1.0.4: Clear first question completion cookie and UI ---
+      deleteCookie('training_first_question_completed');
+      const firstQuestionContainer = document.getElementById('first-question-container');
+      if (firstQuestionContainer) {
+          firstQuestionContainer.classList.remove('first-question-completed');
+          // Optional: Reset button text if it was changed
+          // const firstQuestionShowAnswerBtn = firstQuestionContainer.querySelector('.show-answer-btn');
+          // if (firstQuestionShowAnswerBtn) {
+          //     // Assuming 'Show/Hide Answer' is the default or managed by other logic
+          //     // If it was specifically changed to 'Answer Shown (Completed)', revert it
+          // }
+          console.log('First question completion state and visual reset.');
+      }
+      // --- End V1.0.4 ---
+
       // Reset UI
       updateProgressUI();
 
@@ -1238,6 +1253,21 @@
 
       // Initialize UI with zero progress
       updateProgressUI();
+
+      // --- V1.0.4: Check First Question Completion on Load ---
+      const firstQuestionCookie = getCookie('training_first_question_completed');
+      if (firstQuestionCookie === 'true') {
+          const firstQuestionContainer = document.getElementById('first-question-container');
+          if (firstQuestionContainer) {
+              firstQuestionContainer.classList.add('first-question-completed');
+              console.log('First question was previously completed. UI updated.');
+              // Optional: Update button text or other visual cues
+              // const firstQuestionShowAnswerBtn = firstQuestionContainer.querySelector('.show-answer-btn');
+              // if (firstQuestionShowAnswerBtn) {
+              //     firstQuestionShowAnswerBtn.textContent = 'Answer Shown (Completed)';
+              // }
+          }
+      }
 
       // --- Immediate Feedback for Reinforcement Questions ---
       document.querySelectorAll('.question-area').forEach(function(qArea) {
@@ -1321,6 +1351,21 @@
           button.textContent = isHidden ? 'Hide Questions' : 'Show Questions';
         });
       });
+
+      // --- V1.0.4: First Question Completion Tracking ---
+      const firstQuestionContainer = document.getElementById('first-question-container');
+      if (firstQuestionContainer) {
+          const firstQuestionShowAnswerBtn = firstQuestionContainer.querySelector('.show-answer-btn');
+          if (firstQuestionShowAnswerBtn) {
+              firstQuestionShowAnswerBtn.addEventListener('click', function() {
+                  // Check if cookie isn't already set, to avoid redundant calls (optional but good practice)
+                  if (getCookie('training_first_question_completed') !== 'true') {
+                      setCookie('training_first_question_completed', 'true', 365);
+                      console.log('First question completion cookie set.');
+                  }
+              });
+          }
+      }
     });
   </script>
 

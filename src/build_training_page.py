@@ -108,6 +108,7 @@ def sanitize_html(text):
 
 def generate_training_html(clusters):
     html = []
+    first_question_generated_overall = True  # Flag for the very first question
     for idx, cluster in enumerate(clusters, 1):
         section_id = f"cluster-{idx}"
         html.append(f'<div class="mb-6">')
@@ -139,7 +140,11 @@ def generate_training_html(clusters):
             html.append('<button class="toggle-questions-btn mt-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 text-sm">Show Questions</button>')
             html.append('<div class="question-area hidden mt-2 pt-2 border-t border-gray-300">')
             for qidx, qa in enumerate(cluster['questions'], 1):
-                html.append('<div class="mb-2">')
+                if first_question_generated_overall:
+                    html.append('<div class="mb-2" id="first-question-container">')
+                    first_question_generated_overall = False
+                else:
+                    html.append('<div class="mb-2">')
                 html.append(f'<div class="font-semibold">Q{qidx}: {sanitize_html(qa["q"])}</div>')
                 html.append('<button class="show-answer-btn px-2 py-1 bg-emerald-100 rounded text-emerald-800 text-xs ml-2">Show/Hide Answer</button>')
                 if "choices" in qa and qa["choices"]:
